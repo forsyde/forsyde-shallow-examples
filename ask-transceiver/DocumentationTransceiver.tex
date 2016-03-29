@@ -1,0 +1,78 @@
+\documentclass{report}
+
+\usepackage{listings}
+%\usepackage{draftcopy}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+%\usepackage{pictex}
+\usepackage{epic}
+\usepackage{eepic}
+\usepackage{url}
+\usepackage[latin1]{inputenc}
+
+% Definitions
+%% Various sets, reals, integers, naturals
+\newcommand{\Real}{\ensuremath{\mathbb{R}}\xspace}
+\newcommand{\Int}{\ensuremath{\mathbb{Z}}\xspace}
+\newcommand{\Nat}{\ensuremath{\mathbb{N}}\xspace}
+
+% Abbreviations for arros: 
+\newcommand\ra{\rightarrow}
+\newcommand\Ra{\Rightarrow}
+\newcommand\la{\leftarrow}
+\newcommand\La{\Lefttarrow}
+
+\lstloadlanguages{Haskell}
+
+\lstnewenvironment{interaction}
+    {\lstset{basicstyle=\small\ttfamily}}{}
+
+\lstnewenvironment{code}
+    {\lstset{
+        language=Haskell, 
+        %frame=lines,  
+        basicstyle=\small\ttfamily,
+        %keywordstyle=\bfseries, % these look ugly
+        %identifierstyle=\bfseries,
+        %commentstyle=\itshape,
+        flexiblecolumns=false,
+        basewidth={0.5em,0.45em}
+        % The following replace compound charcters like ->
+        % Something is missing - someone kindly sent me an email which 
+        % I've lost - but it's obvious how to add more.
+        %literate={-}{{$-$}}1 {+}{{$+$}}1 {/}{{$/$}}1 {*}{{$*$}}1 {=}{{$=$}}1
+        %   {>}{{$>$}}1 {<}{{$<$}}1 
+        %   {->}{{$\rightarrow$}}2 {<-}{{$\leftarrow$}}2}}{}
+}}{}
+
+\newcommand{\interactioncode}[1]{\texttt{#1}\xspace}
+\newcommand{\haskell}[1]{{\texttt{#1}}}
+
+\title{The ASK transceiver example in ForSyDe}
+\author{Ingo Sander, Jun Zhu and Axel Jantsch \\ Kungliga Tekniska Högskolan \\
+Stockholm, Sweden}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\input{Introduction.tex}
+
+\input{TransceiverSystem.lhs}
+
+\input{Transceiver.lhs}
+
+\input{Controller.lhs}
+
+\input{EncDec.lhs}
+
+\input{Main.lhs}
+
+\input{Utilities.lhs}
+
+\input{Parameters.lhs}
+
+\end{document}
