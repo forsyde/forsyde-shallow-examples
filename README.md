@@ -20,19 +20,17 @@ List of demos
 
 #### 1. Synchronous MoC
 
-  1. TrafficLight: 
-  TODO
+  1. TrafficLight: Models a FSM for a traffic light controller.
 
   2. PitchControl: 
   TODO
 
 #### 2. Untimed MoC
 
-  1. AdaptiveAmp: 
-  TODO
+  1. AdaptiveAmp: Models an adaptive amplifier.
 
-  2. Ascii2Bin:
-  TODO
+  2. Ascii2Bin: Models two processes to convert between ASCII
+     characters and their binary representations.
 
 
 #### 3. Synchronous DataFlow MoC
