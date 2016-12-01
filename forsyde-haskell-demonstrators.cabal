@@ -18,7 +18,8 @@ cabal-version:       >=1.10
 library
   -- exposed-modules:     ForSyDe.Examples.Heterogeneous.ASKTransceiver.Controller, ForSyDe.Examples.Heterogeneous.ASKTransceiver.EncDec, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Gaussian, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Main, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Parameters, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Transceiver, ForSyDe.Examples.Heterogeneous.ASKTransceiver.TransceiverSystem, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Utilities, ForSyDe.Examples.SY.PitchControl.PitchControl, ForSyDe.Examples.Untimed.AdaptiveAmp.AdaptiveAmp
   exposed-modules:     ForSyDe.Examples.Untimed.AdaptiveAmp,
-                       ForSyDe.Examples.Untimed.Ascii2Bin
+                       ForSyDe.Examples.Untimed.Ascii2Bin,
+                       ForSyDe.Examples.Synchronous.TrafficLight
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.9 && <4.10, ForSyDe-Shallow >=3.3 && <3.4, random >=1.1 && <1.2
