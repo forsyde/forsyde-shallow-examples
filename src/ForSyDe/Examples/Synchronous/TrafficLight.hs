@@ -12,7 +12,7 @@
 -- 
 -----------------------------------------------------------------------------
 
-module TrafficLight where
+module ForSyDe.Examples.Synchronous.TrafficLight where
 
 import ForSyDe.Shallow
 
@@ -24,11 +24,21 @@ data State = RR1 | RY1 | RG | RY2 | RR2 | YR1 | GR | YR2
 data Color = RED | YELLOW | GREEN
     deriving Show
 
--- | Traffic light controller module
-trafficController :: Signal Int -> Signal (Color, Color)
+-- | 'trafficController' models a FSM for the traffic light
+-- controller.  The Clock signal receives a sequence of tokens, each
+-- representing a single clock tick.
+--
+-- >>> let sig = signal [1..20]
+-- >>> trafficController sig
+-- {(RED,RED),(RED,RED),(RED,YELLOW),(RED,YELLOW),(RED,YELLOW),(RED,YELLOW),
+-- (RED,GREEN),(RED,GREEN),(RED,GREEN),(RED,GREEN),(RED,GREEN),(RED,GREEN),
+-- (RED,GREEN),(RED,GREEN),(RED,GREEN),(RED,GREEN),(RED,GREEN),(RED,GREEN),
+-- (RED,GREEN),(RED,GREEN),(RED,GREEN)}
+trafficController :: Signal Int            -- ^ Clock signal
+                  -> Signal (Color, Color) -- ^ Output signal
 trafficController = mooreSY nsf outf (RR1, 0)
 
--- | Next state function. Implements the state diagram
+-- | Next state function. Implements the state diagram transitions.
 nsf :: Register -> Clock -> Register
 nsf (RR1, cnt) c    | cnt < 1 = (RR1, cnt+1)
                     | otherwise = (RY1, 0)
@@ -47,7 +57,7 @@ nsf (GR, cnt)  c    | cnt < 60 = (GR, cnt+1)
 nsf (YR2, cnt) c    | cnt < 3 = (YR2, cnt+1)
                     | otherwise = (RR1, 0)
 
--- | Output function
+-- | Output function.
 outf :: Register -> (Color, Color)
 outf (RR1, cnt) = (RED, RED)
 outf (RR2, cnt) = (RED, RED)
