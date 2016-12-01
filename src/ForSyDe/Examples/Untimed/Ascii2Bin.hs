@@ -12,7 +12,8 @@
 -- 
 -----------------------------------------------------------------------------
 
-module Ascii2bin where
+module ForSyDe.Examples.Untimed.Ascii2Bin (char2bin,
+                                          bin2char) where
 
 import ForSyDe.Shallow
 import Data.Char
@@ -20,12 +21,12 @@ import Data.Char
 -- p is a process that translates characters of the English alphabet and digits
 -- into their binary ASCII representation.
 -- For each firing, takes one token and generates 8 tokens.
-p :: Signal Char -> Signal Char
-p = mapU 1 char2bin
+char2bin :: Signal Char -> Signal Char
+char2bin = mapU 1 char2bin'
 
-char2bin :: [Char] -> [Char]
-char2bin []     = []
-char2bin (x:xs) = (reverse . take 8 . int2bin $ ord x) ++ (char2bin xs)
+char2bin' :: [Char] -> [Char]
+char2bin' []     = []
+char2bin' (x:xs) = (reverse . take 8 . int2bin $ ord x) ++ (char2bin' xs)
 
 -- Generates an infinite list of chars with little endian codification.
 int2bin :: Int -> [Char]
@@ -35,8 +36,8 @@ int2bin x
 
 -- q is a process that reverts the operation made by p.
 -- For each firing, takes 8 tokens and generates 1 token.
-q :: Signal Char -> Signal Char
-q = mapU 8 int2char
+bin2char :: Signal Char -> Signal Char
+bin2char = mapU 8 int2char
 
 int2char :: [Char] -> [Char]
 int2char [] = []
