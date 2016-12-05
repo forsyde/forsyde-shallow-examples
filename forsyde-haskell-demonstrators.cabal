@@ -22,7 +22,8 @@ library
                        ForSyDe.Examples.Synchronous.TrafficLight,
                        ForSyDe.Examples.Synchronous.PitchControl,
                        ForSyDe.Examples.Synchronous.FibonacciRabbits,
-                       ForSyDe.Examples.Synchronous.FibonacciRabbitsDeath
+                       ForSyDe.Examples.Synchronous.FibonacciRabbitsDeath,
+                       ForSyDe.Examples.Synchronous.RCFilter
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.9 && <4.10, ForSyDe-Shallow >=3.3 && <3.4, random >=1.1 && <1.2
