@@ -27,6 +27,8 @@ List of demos
   
   3. FibonacciRabbits: Models to Fibonacci rabbits reproduction system.
   
+  4. FibonacciRabbitsDeath: Models the Fibonacci reproduction system considering rabbits death rate.
+
 #### 2. Untimed MoC
 
   1. AdaptiveAmp: Models an adaptive amplifier.
