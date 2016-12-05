@@ -70,4 +70,4 @@ ctOutput = d2aConverter DAhold 0.1 $ pitchControl $ ((takeS 10 zeros) +-+ (takeS
   where ones = 1.0:-ones
         zeros = 0.0:-zeros
 
-plotCtOutput = plotCT' 0.1 [(ctOutput, "ctOutput")]
+plotCtOutput = plotCT' 0.001 [(ctOutput, "ctOutput")]
