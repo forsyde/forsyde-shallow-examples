@@ -21,7 +21,8 @@ library
                        ForSyDe.Examples.Untimed.Ascii2Bin,
                        ForSyDe.Examples.Synchronous.TrafficLight,
                        ForSyDe.Examples.Synchronous.PitchControl,
-                       ForSyDe.Examples.Synchronous.FibonacciRabbits
+                       ForSyDe.Examples.Synchronous.FibonacciRabbits,
+                       ForSyDe.Examples.Synchronous.FibonacciRabbitsDeath
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.9 && <4.10, ForSyDe-Shallow >=3.3 && <3.4, random >=1.1 && <1.2
