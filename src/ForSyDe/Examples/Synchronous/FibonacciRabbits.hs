@@ -68,13 +68,28 @@
 --
 -- >>> fibonnaciRabbits $ signal [1..12]
 -- {1,1,2,3,5,8,13,21,34,55,89,144}
+--
+-- =Running the demo
+-- 
+-- To run the demo you need the
+-- <http://hackage.haskell.org/package/ForSyDe ForSyDe package>
+-- installed in your environment. For plotting, you need the
+-- <http://gnuplot.sourceforge.net Gnuplot package>.
+--
+-- To simulate the system for 12 months, run in @ghci@:
+-- >>> simulate 12
+-- 
+-- To plot the number of rabbits evolution in 12 months, run in @ghci@:
+-- >>> plotOutput 12 0.1
 -----------------------------------------------------------------------------
 
 module ForSyDe.Examples.Synchronous.FibonacciRabbits where
 
 import ForSyDe.Shallow
 
--- | 'fibonacciRabbits is a process. 
+-- | 'fibonacciRabbits' is the top-level process that calculates
+-- consume a token on the input and calculate the sequence @f[n]@ for
+-- each token.
 fibonacciRabbits :: Signal a    -- ^ 'ticks' signal. Each token
                                 -- represents one month on the model.
                  -> Signal Integer -- ^ @f[n]@, the number of rabbits.
@@ -83,14 +98,28 @@ fibonacciRabbits ticks = zipWith3SY add n a ticks
         a = adults n
         add x y ctrl = x + y
 
--- | 'newborns'
+-- | 'newborns' calculates @newborns[n+1]@ given @adults[n]@
 newborns :: Signal Integer      -- ^ input signal, @adults[n]@
          -> Signal Integer      -- ^ output signal, @newborns[n+1]@
 newborns = delaySY 1
 
--- | adults
+-- | 'adults' calculates @adults[n+1]@  given @newborns[n]@
 adults :: Signal Integer        -- ^ input signal, @newborns[n]@
        -> Signal Integer        -- ^ output signal, @adults[n+1]@ 
 adults = mooreSY nsf out 0
   where nsf state input = (state + input)
         out state = state
+
+-- | 'simulate' takes the number of months and simulates the system's behavior.
+simulate :: Integer             -- ^ number of months to simulate
+         -> Signal Integer      -- ^ @f[n]@ sequence
+simulate months = fibonacciRabbits $ signal [1..months]
+
+-- | 'plotOutput' uses the CTLib plot capabilities to plot the output. In a later version, a plotter to Synchonous signals will be developed.
+plotOutput :: Integer           -- ^ number of months to simulate
+           -> Rational          -- ^ timestep
+           -> IO String         -- ^ plot
+plotOutput months timestep = plotCT' timestep [(output, "output")]
+  where output = d2aConverter DAhold 1.0 $
+                 mapSY (fromInteger) $
+                 fibonacciRabbits $ signal [1..months]
