@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------------
 -- |
--- Module      :  PitchControl
+-- Module      :  FibonacciRabbits
 -- Copyright   :  José Edil Guimarães de Medeiros
 -- License     :  BSD-style (see the file LICENSE)
 -- 
@@ -77,9 +77,11 @@
 -- <http://gnuplot.sourceforge.net Gnuplot package>.
 --
 -- To simulate the system for 12 months, run in @ghci@:
+--
 -- >>> simulate 12
 -- 
 -- To plot the number of rabbits evolution in 12 months, run in @ghci@:
+--
 -- >>> plotOutput 12 0.1
 -----------------------------------------------------------------------------
 
@@ -115,7 +117,9 @@ simulate :: Integer             -- ^ number of months to simulate
          -> Signal Integer      -- ^ @f[n]@ sequence
 simulate months = fibonacciRabbits $ signal [1..months]
 
--- | 'plotOutput' uses the CTLib plot capabilities to plot the output. In a later version, a plotter to Synchonous signals will be developed.
+-- | 'plotOutput' uses the CTLib plot capabilities to plot the
+-- output. In a later version, a plotter to Synchonous signals will be
+-- developed.
 plotOutput :: Integer           -- ^ number of months to simulate
            -> Rational          -- ^ timestep
            -> IO String         -- ^ plot
