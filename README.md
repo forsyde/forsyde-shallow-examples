@@ -29,6 +29,8 @@ List of demos
   
   4. FibonacciRabbitsDeath: Models the Fibonacci reproduction system considering rabbits death rate.
 
+  5. RCFilter: Models a first order low pass RC filter.
+
 #### 2. Untimed MoC
 
   1. AdaptiveAmp: Models an adaptive amplifier.
