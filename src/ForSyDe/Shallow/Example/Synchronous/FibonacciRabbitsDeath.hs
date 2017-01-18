@@ -59,7 +59,7 @@
 -- >>> plotOutput 12 0.1
 -----------------------------------------------------------------------------
 
-module ForSyDe.Examples.Synchronous.FibonacciRabbitsDeath where
+module ForSyDe.Shallow.Example.Synchronous.FibonacciRabbitsDeath where
 
 import ForSyDe.Shallow
 

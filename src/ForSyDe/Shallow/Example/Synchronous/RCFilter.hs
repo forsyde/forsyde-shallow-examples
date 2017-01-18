@@ -48,7 +48,7 @@
 -- >>> plotOutput 1e3 1e-6 1e-6 10000
 -----------------------------------------------------------------------------
 
-module ForSyDe.Examples.Synchronous.RCFilter where
+module ForSyDe.Shallow.Example.Synchronous.RCFilter where
 
 import ForSyDe.Shallow
 

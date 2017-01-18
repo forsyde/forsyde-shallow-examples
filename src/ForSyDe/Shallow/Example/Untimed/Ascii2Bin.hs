@@ -13,7 +13,7 @@
 -- 
 -----------------------------------------------------------------------------
 
-module ForSyDe.Examples.Untimed.Ascii2Bin (char2bin,
+module ForSyDe.Shallow.Example.Untimed.Ascii2Bin (char2bin,
                                           bin2char) where
 
 import ForSyDe.Shallow

@@ -15,7 +15,7 @@
 -- 
 -----------------------------------------------------------------------------
 
-module ForSyDe.Examples.Untimed.AdaptiveAmp (adaptiveAmp,
+module ForSyDe.Shallow.Example.Untimed.AdaptiveAmp (adaptiveAmp,
                                             p1,
                                             p2,
                                             p3,

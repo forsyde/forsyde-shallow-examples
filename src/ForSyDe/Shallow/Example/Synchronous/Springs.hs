@@ -81,7 +81,7 @@
 -- >>> plotOutput 1 10 0.1 1 2000
 -----------------------------------------------------------------------------
 
-module ForSyDe.Examples.Synchronous.Springs where
+module ForSyDe.Shallow.Example.Synchronous.Springs where
 
 import ForSyDe.Shallow
 

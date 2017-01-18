@@ -12,7 +12,7 @@
 -- 
 -----------------------------------------------------------------------------
 
-module ForSyDe.Examples.Synchronous.TrafficLight where
+module ForSyDe.Shallow.Example.Synchronous.TrafficLight where
 
 import ForSyDe.Shallow
 

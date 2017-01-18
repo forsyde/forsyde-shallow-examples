@@ -4,29 +4,32 @@
 name:                forsyde-haskell-demonstrators
 version:             0.2.0.0
 -- synopsis:            
--- description:         
+description:
+  Collection of demo applications for the ForSyDe.Shallow library     
 license:             BSD3
 license-file:        LICENSE
-author:              José Edil Guimarães De Medeiros
-maintainer:          j.edil@ene.unb.br
--- copyright:           
+author:              Ingo Sander,
+                     José Edil Guimarães De Medeiros
+maintainer:          ugeorge@kth.se, 
+                     j.edil@ene.unb.br
+copyright:           Ingo Sander and authors
 -- category:            
 build-type:          Simple
-extra-source-files:  ChangeLog.md, README.md
+extra-source-files:  README.md
 cabal-version:       >=1.10
 
 library
-  -- exposed-modules:     ForSyDe.Examples.Heterogeneous.ASKTransceiver.Controller, ForSyDe.Examples.Heterogeneous.ASKTransceiver.EncDec, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Gaussian, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Main, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Parameters, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Transceiver, ForSyDe.Examples.Heterogeneous.ASKTransceiver.TransceiverSystem, ForSyDe.Examples.Heterogeneous.ASKTransceiver.Utilities, ForSyDe.Examples.SY.PitchControl.PitchControl, ForSyDe.Examples.Untimed.AdaptiveAmp.AdaptiveAmp
-  exposed-modules:     ForSyDe.Examples.Untimed.AdaptiveAmp,
-                       ForSyDe.Examples.Untimed.Ascii2Bin,
-                       ForSyDe.Examples.Synchronous.TrafficLight,
-                       ForSyDe.Examples.Synchronous.PitchControl,
-                       ForSyDe.Examples.Synchronous.FibonacciRabbits,
-                       ForSyDe.Examples.Synchronous.FibonacciRabbitsDeath,
-                       ForSyDe.Examples.Synchronous.RCFilter,
-                       ForSyDe.Examples.Synchronous.Springs
+  -- exposed-modules:     ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Controller, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.EncDec, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Transceiver, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.TransceiverSystem, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities, ForSyDe.Shallow.Example.SY.PitchControl.PitchControl, ForSyDe.Shallow.Example.Untimed.AdaptiveAmp.AdaptiveAmp
+  exposed-modules:     ForSyDe.Shallow.Example.Untimed.AdaptiveAmp,
+                       ForSyDe.Shallow.Example.Untimed.Ascii2Bin,
+                       ForSyDe.Shallow.Example.Synchronous.TrafficLight,
+                       -- ForSyDe.Shallow.Example.Synchronous.PitchControl,
+                       ForSyDe.Shallow.Example.Synchronous.FibonacciRabbits,
+                       ForSyDe.Shallow.Example.Synchronous.FibonacciRabbitsDeath,
+                       ForSyDe.Shallow.Example.Synchronous.RCFilter,
+                       ForSyDe.Shallow.Example.Synchronous.Springs
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.9 && <4.10, ForSyDe-Shallow >=3.3 && <3.4, random >=1.1 && <1.2
+  build-depends:       base >=4.6 && <6, ForSyDe-Shallow >=3.3 && <4, random >=1.1 && <2
   hs-source-dirs:      src
   default-language:    Haskell2010
