@@ -16,6 +16,7 @@ module ForSyDe.Shallow.Example.Synchronous.PitchControl.PitchControlMain where
 import ForSyDe.Shallow
 import ForSyDe.Shallow.Example.Synchronous.PitchControl.PitchControlSS
 
+-- | 'pitchControl' is the top level module.
 pitchControl :: Signal Sample -> Signal Sample
 pitchControl setPoint = controlSignal
   where
