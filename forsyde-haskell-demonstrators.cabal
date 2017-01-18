@@ -9,7 +9,7 @@ description:
 license:             BSD3
 license-file:        LICENSE
 author:              Ingo Sander,
-                     José Edil Guimarães De Medeiros
+                     José Edil Guimarães De Medeiros
 maintainer:          ugeorge@kth.se, j.edil@ene.unb.br
 copyright:           Ingo Sander and authors
 -- category:            
@@ -22,12 +22,12 @@ library
   exposed-modules:     ForSyDe.Shallow.Example.Untimed.AdaptiveAmp,
                        ForSyDe.Shallow.Example.Untimed.Ascii2Bin,
                        ForSyDe.Shallow.Example.Synchronous.TrafficLight,
-                       -- ForSyDe.Shallow.Example.Synchronous.PitchControl,
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbits,
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbitsDeath,
                        ForSyDe.Shallow.Example.Synchronous.RCFilter,
                        ForSyDe.Shallow.Example.Synchronous.Springs,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver
+                       ForSyDe.Shallow.Example.Synchronous.PitchControl
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.6 && <6, ForSyDe-Shallow >=3.3 && <4, random >=1.1 && <2
