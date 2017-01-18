@@ -27,7 +27,7 @@ library
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbitsDeath,
                        ForSyDe.Shallow.Example.Synchronous.RCFilter,
                        ForSyDe.Shallow.Example.Synchronous.Springs,
-                       ForSyDe.Shallow.Example.Synchronous.PitchControl.PitchControl
+                       ForSyDe.Shallow.Example.Synchronous.PitchControl
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.6 && <6, ForSyDe-Shallow >=3.3 && <4, random >=1.1 && <2

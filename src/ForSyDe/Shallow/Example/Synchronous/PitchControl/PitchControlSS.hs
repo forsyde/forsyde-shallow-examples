@@ -1,6 +1,7 @@
+{-# OPTIONS_HADDOCK hide #-}
 -----------------------------------------------------------------------------
 -- |
--- Module      :  PitchControl
+-- Module      :  PitchControlSS
 -- Copyright   :  Daniel Mauricio Muñoz Arboleda
 -- License     :  BSD-style (see the file LICENSE)
 -- 
