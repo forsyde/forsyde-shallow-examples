@@ -8,6 +8,7 @@
 \end{figure}
 
 \begin{code}
+{-# OPTIONS_HADDOCK hide #-}
 module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main where
 
 import System.IO

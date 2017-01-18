@@ -10,12 +10,12 @@ license:             BSD3
 license-file:        LICENSE
 author:              Ingo Sander,
                      José Edil Guimarães De Medeiros
-maintainer:          ugeorge@kth.se, 
-                     j.edil@ene.unb.br
+maintainer:          ugeorge@kth.se, j.edil@ene.unb.br
 copyright:           Ingo Sander and authors
 -- category:            
 build-type:          Simple
 extra-source-files:  README.md
+extra-doc-files:     files/*.pdf
 cabal-version:       >=1.10
 
 library
@@ -27,7 +27,7 @@ library
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbitsDeath,
                        ForSyDe.Shallow.Example.Synchronous.RCFilter,
                        ForSyDe.Shallow.Example.Synchronous.Springs,
-                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.6 && <6, ForSyDe-Shallow >=3.3 && <4, random >=1.1 && <2

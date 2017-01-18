@@ -10,7 +10,7 @@
 The main module for encryption and decryption module in SDF domain.
 
 \begin{code}
-
+{-# OPTIONS_HADDOCK hide #-}
 module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.EncDec 
     where 
 

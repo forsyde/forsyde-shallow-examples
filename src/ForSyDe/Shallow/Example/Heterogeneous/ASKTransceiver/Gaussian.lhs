@@ -1,7 +1,7 @@
 \chapter{The module \haskell{Gaussian}}
 
 \begin{code}
-
+{-# OPTIONS_HADDOCK hide #-}
 module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian where
 
 

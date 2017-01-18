@@ -9,6 +9,7 @@
 
 The \haskell{Controller} is modelled in the synchronous domain. There is one input to control the encoding and decoding algorithms. The bit error rate input will be analysed by the adaptive power controller to set the gain, which is an input to the sender in the transceiver module.
 \begin{code}
+{-# OPTIONS_HADDOCK hide #-}
 module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Controller 
     where 
 

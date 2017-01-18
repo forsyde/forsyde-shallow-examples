@@ -10,6 +10,7 @@
 The transceiver system contains the Transceiver, Encryption, Decryption, Controller and interfaces between different model of computation domains. It is the system module under test. 
 
 \begin{code}
+{-# OPTIONS_HADDOCK hide #-}
 module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.TransceiverSystem
     where 
 

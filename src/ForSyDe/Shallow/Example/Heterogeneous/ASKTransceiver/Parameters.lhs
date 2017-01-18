@@ -3,6 +3,7 @@
 The module \haskell{Parameters} gathers the parameters used in the 
 ASK transceiver system example. 
 \begin{code}
+{-# OPTIONS_HADDOCK hide #-}
 module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters where
 
 import Data.Ratio

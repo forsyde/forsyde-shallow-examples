@@ -1,5 +1,6 @@
 \chapter{The module \haskell{Utilities}}
 \begin{code}
+{-# OPTIONS_HADDOCK hide #-}
 module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities where
 
 -- import CTLib
