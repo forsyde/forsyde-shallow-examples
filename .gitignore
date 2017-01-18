@@ -25,3 +25,9 @@ cabal.sandbox.config
 auto-save-list
 tramp
 .\#*
+TAGS
+fig/ct-moc-graph-Step response PID pitch control-latex.eps
+fig/ct-moc-graph-Step response PID pitch control-latex.tex
+fig/ct-moc-graph-Step response PID pitch control.eps
+fig/ct-moc-Step response PID pitch control1.dat
+ct-moc-10.gnuplot
