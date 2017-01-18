@@ -17,7 +17,8 @@ import ForSyDe.Shallow
 import ForSyDe.Shallow.Example.Synchronous.PitchControl.PitchControlSS
 
 -- | 'pitchControl' is the top level module.
-pitchControl :: Signal Sample -> Signal Sample
+pitchControl :: Signal Sample   -- ^ System setpoint. 
+             -> Signal Sample   -- ^ System output.
 pitchControl setPoint = controlSignal
   where
     controlSignal = pitchControlSS pidOutput
@@ -28,20 +29,28 @@ pitchControl setPoint = controlSignal
     ki = 0.5420
     kd = 0.4697
 
--- sensor has delay to break the 0 delay in the sensor feedback loop
+-- | 'sensor' is implemented as a delay on the feedback loop.
 sensor = delaySY 0.0
 
-pid :: (Sample, Sample, Sample) -> Signal Sample -> Signal Sample
+-- | 'pid' is the controller model. It is implemented as a Mealy process.
+pid :: (Sample, Sample, Sample) -- ^ (kp, ki, kd) parameters.
+    -> Signal Sample            -- ^ Input signal.
+    -> Signal Sample            -- ^ Output signal.
 pid (kp, ki, kd) a = mealySY nextState outputDecoder s0 a
   where
     nextState state _ = state
     outputDecoder state input = kp * input + ki * (input + state) + kd * (input - state)
     s0 = 0.0
 
-sigma :: Signal Sample -> Signal Sample -> Signal Sample
+-- | 'sigma' is the adder module that compares the setpoint with the feedback signal.
+sigma :: Signal Sample          -- ^ (+) input.
+      -> Signal Sample          -- ^ (-) input.
+      -> Signal Sample          -- ^ Output signal.
 sigma a b = zipWithSY (-) a b
 
+-- | 'ctOutput' is an auxiliary process used for plotting. 
 ctOutput = d2aConverter DAlinear 1.0 $ pitchControl $ takeS 1000 ones
   where ones = 1.0:-ones 
 
+-- | 'plotCtOutput' runs the simulation.
 plotCtOutput = plotCT' 10 [(ctOutput, "Step response PID pitch control")]
