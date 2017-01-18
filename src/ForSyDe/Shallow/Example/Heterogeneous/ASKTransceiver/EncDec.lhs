@@ -10,8 +10,8 @@
 The main module for encryption and decryption module in SDF domain.
 
 \begin{code}
-
-module EncDec 
+{-# OPTIONS_HADDOCK hide #-}
+module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.EncDec 
     where 
 
 -- import ForSyDeMoCLib
@@ -24,7 +24,7 @@ import ForSyDe.Shallow.CTLib
 import ForSyDe.Shallow.AdaptivityLib
 import ForSyDe.Shallow.BitVector
 
-import Utilities
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities
 
 moduleEncDec sig_sr_Rx sig_sr_testIn sig_sr_cryptoMode
                   = (sig_sr_bitError, sig_sr_testOut, sig_sr_Tx)

@@ -8,9 +8,8 @@
 \end{figure}
 
 \begin{code}
---module Main 
---    where
-
+{-# OPTIONS_HADDOCK hide #-}
+module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main where
 
 import System.IO
 import System.IO.Unsafe
@@ -20,7 +19,7 @@ import System.IO.Unsafe
 -- import CTLib
 -- import FilterLib
 -- import BitVector
-import Gaussian
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian
 
 
 import ForSyDe.Shallow
@@ -30,12 +29,12 @@ import ForSyDe.Shallow.BitVector
 
 
 
-import Parameters
-import Transceiver
-import Utilities
-import Controller
-import EncDec
-import TransceiverSystem
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Transceiver
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Controller
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.EncDec
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.TransceiverSystem
 
 
 
