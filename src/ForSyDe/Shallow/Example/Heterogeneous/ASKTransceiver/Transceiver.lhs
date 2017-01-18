@@ -9,7 +9,8 @@
 
 The transceiver contains a receiver and a sender. The receiver receives an ASK-signal of the continuous time domain and outputs a signal of bitvectors that is modeled in the untimed domain. The sender conducts the opposite operation, but in addition, it also adapts the gain based on the input of a control signal.
 \begin{code}
-module Transceiver
+{-# OPTIONS_HADDOCK hide #-}
+module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Transceiver
     where 
 
 -- import ForSyDeMoCLib
@@ -22,8 +23,8 @@ import ForSyDe.Shallow.CTLib
 import ForSyDe.Shallow.BitVector
 import ForSyDe.Shallow.FilterLib
 
-import Parameters
-import Utilities
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities
 
 transceiver :: -- (Fractional a) =>
                Signal (SubsigCT Double) -- Input: ASK Signal (to receiver) 
