@@ -9,17 +9,16 @@ description:
 license:             BSD3
 license-file:        LICENSE
 author:              Ingo Sander,
-                     José Edil Guimarães De Medeiros
-maintainer:          ugeorge@kth.se, 
-                     j.edil@ene.unb.br
+                     José Edil Guimarães De Medeiros
+maintainer:          ugeorge@kth.se, j.edil@ene.unb.br
 copyright:           Ingo Sander and authors
 -- category:            
 build-type:          Simple
 extra-source-files:  README.md
+extra-doc-files:     files/*.pdf
 cabal-version:       >=1.10
 
 library
-  -- exposed-modules:     ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Controller, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.EncDec, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Transceiver, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.TransceiverSystem, ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities, ForSyDe.Shallow.Example.SY.PitchControl.PitchControl, ForSyDe.Shallow.Example.Untimed.AdaptiveAmp.AdaptiveAmp
   exposed-modules:     ForSyDe.Shallow.Example.Untimed.AdaptiveAmp,
                        ForSyDe.Shallow.Example.Untimed.Ascii2Bin,
                        ForSyDe.Shallow.Example.Synchronous.TrafficLight,
@@ -27,6 +26,7 @@ library
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbitsDeath,
                        ForSyDe.Shallow.Example.Synchronous.RCFilter,
                        ForSyDe.Shallow.Example.Synchronous.Springs,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver
                        ForSyDe.Shallow.Example.Synchronous.PitchControl
   -- other-modules:       
   -- other-extensions:    
