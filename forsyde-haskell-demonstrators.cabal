@@ -23,11 +23,11 @@ library
   exposed-modules:     ForSyDe.Shallow.Example.Untimed.AdaptiveAmp,
                        ForSyDe.Shallow.Example.Untimed.Ascii2Bin,
                        ForSyDe.Shallow.Example.Synchronous.TrafficLight,
-                       -- ForSyDe.Shallow.Example.Synchronous.PitchControl,
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbits,
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbitsDeath,
                        ForSyDe.Shallow.Example.Synchronous.RCFilter,
-                       ForSyDe.Shallow.Example.Synchronous.Springs
+                       ForSyDe.Shallow.Example.Synchronous.Springs,
+                       ForSyDe.Shallow.Example.Synchronous.PitchControl.PitchControl
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.6 && <6, ForSyDe-Shallow >=3.3 && <4, random >=1.1 && <2
