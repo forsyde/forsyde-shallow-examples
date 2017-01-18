@@ -17,17 +17,21 @@ import ForSyDe.Shallow
 
 type Sample = Double
 
--- declaration of state-space matrix and parameters
+-- | State space model A matrix declaration.
 aMatrix = vector [vector [-0.313, 56.7, 0],
                   vector [-0.0139, -0.426, 0],
                   vector [0, 56.7, 0]]
 
+-- | State space model B matrix declaration.
 bMatrix = vector [0.232, 0.0203, 0]
 
+-- | State space model C matrix declaration.
 cMatrix = vector [0, 0, 1]
 
+-- | State space model D matrix declaration.
 dMatrix = 0.0
 
+-- | Timestep.
 deltaT = 0.1
 
 -- declaration of processes
