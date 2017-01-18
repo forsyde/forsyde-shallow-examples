@@ -1,6 +1,6 @@
 \chapter{The module \haskell{Utilities}}
 \begin{code}
-module Utilities where
+module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities where
 
 -- import CTLib
 -- import ForSyDeMoCLib
@@ -10,7 +10,7 @@ import ForSyDe.Shallow
 import ForSyDe.Shallow.CTLib
 import ForSyDe.Shallow.BitVector
 
-import Parameters
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters
 \end{code}
  
 \begin{code}

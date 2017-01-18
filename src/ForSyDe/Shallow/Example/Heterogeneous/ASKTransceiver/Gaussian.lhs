@@ -2,7 +2,7 @@
 
 \begin{code}
 
-module Gaussian where
+module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian where
 
 
 -- import SynchronousLib
@@ -17,7 +17,7 @@ import ForSyDe.Shallow.BitVector
 import ForSyDe.Shallow.Signal
 
 import System.Random
-import Utilities
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities
 
 -- Test case
 sig_GaussianDouble1 = mapU 2 (gaussianF1 0 3e-9 ) sig_myRand   

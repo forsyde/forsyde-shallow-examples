@@ -31,7 +31,6 @@ List of demos
   1. AdaptiveAmp: Models an adaptive amplifier.
   1. Ascii2Bin: Models two processes to convert between ASCII characters and their binary representations.
 
-
 #### 3. Synchronous DataFlow MoC
   
   No demos available at the moment.

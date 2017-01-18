@@ -10,7 +10,7 @@
 The transceiver system contains the Transceiver, Encryption, Decryption, Controller and interfaces between different model of computation domains. It is the system module under test. 
 
 \begin{code}
-module TransceiverSystem
+module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.TransceiverSystem
     where 
 
 -- import ForSyDeMoCLib
@@ -21,12 +21,12 @@ import ForSyDe.Shallow
 import ForSyDe.Shallow.CTLib
 import ForSyDe.Shallow.BitVector
 
-import Parameters
-import Utilities
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities
 
-import Transceiver
-import EncDec
-import Controller
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Transceiver
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.EncDec
+import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Controller
 
 
 transceiverSystem ::
