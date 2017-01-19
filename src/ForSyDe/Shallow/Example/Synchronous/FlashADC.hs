@@ -35,10 +35,6 @@ module ForSyDe.Shallow.Example.Synchronous.FlashADC where
 
 import ForSyDe.Shallow
 
-type Resistors = (Double, Double, Double, Double)
-type Voltages = Signal Double
-type Bits = (Bool, Bool, Bool)
-
 -- | 'flashADC' is the top level module.
 flashADC :: [Double]                    -- ^ Resistance values
           -> Signal Double              -- ^ Input signal
@@ -71,26 +67,25 @@ resNetwork resistors = init $ tail $ scanl (\v r -> v + vdd * r / (sumR)) 0 resi
   where vdd = 1
         sumR = sum resistors
 
+-- | 'simulate' takes the system parameters and runs the simulation
+-- with a sine wave input.
+simulate :: Int                         -- ^ ADC resolution
+         -> Signal Integer              -- ^ ADC output
+simulate res = flashADC resistors input
+  where resistors = replicate (2^res) 1
+        input = signal $ map (\t -> 0.5*sin(2*pi*t)+0.5) linspace
+        linspace = map (\t -> t/100) [1..100]
 
--- -- | 'simulate' takes the system parameters and dumps the step response.
--- simulate :: Double              -- ^ Resistance
---          -> Double              -- ^ Capacitance
---          -> Double              -- ^ Discretization timestep
---          -> Int                 -- ^ Number of samples
---          -> Signal Double       -- ^ Output signal
--- simulate r c t stop = rcFilter r c t $ (takeS stop ones)
---   where ones = 1.0:-ones
-
--- -- | 'plotOutput' uses the CTLib plot capabilities to plot the
--- -- outpu. In a later version, a plotter to Synchornous signals will be
--- -- developed.
--- plotOutput :: Double            -- ^ Resistance
---            -> Double            -- ^ Capacitance
---            -> Double            -- ^ Discretization timestep
---            -> Int               -- ^ Number of samples
---            -> IO String         -- ^ plot
--- plotOutput r c t stop = plotCT' (toRational t) [(output, "output")]
---   where output = d2aConverter DAhold (toRational t) $
---                  rcFilter r c t $ ((takeS stop ones) +-+ (takeS stop zeros))
---         ones = 1.0:-ones
---         zeros = 0.0:-zeros
+-- | 'plotOutput' uses the CTLib plot capabilities to plot the
+-- output. In a later version, a plotter to Synchornous signals will be
+-- developed.
+plotOutput :: Int                       -- ^ Resolution
+           -> Double                    -- ^ Discretization timestep
+           -> Int                       -- ^ Number of samples
+           -> IO String                 -- ^ plot
+plotOutput res t stop = plotCT' (toRational t) [(output, "output")]
+  where output = d2aConverter DAhold (toRational t) adcSignal
+        adcSignal = signal $ map (toRational) $ fromSignal $ flashADC resistors input
+        resistors = replicate (2^res) 1
+        input = signal $ map (\t -> 0.5*sin(2*pi*t)+0.5) linspace
+        linspace = map (\t -> t/1000) [1..1000]
