@@ -57,78 +57,37 @@ type Voltages = Signal Double
 type Bits = (Bool, Bool, Bool)
 
 -- | 'flashADC' is the top level module.
-
--- -- | 'voltageScaling' takes Vref and resistor values and generates the comparing voltages.
--- voltageScaling :: Resistors             -- ^ Resistor network
---                -> Signal Voltages       -- ^ Scaled voltages
--- voltageScaling (r1,r2,r3,r4) = holdSY (signal [v1,v2,v3]) $ signal $ map (\_ -> Abst) [1..]
---   where v1 = vref * r1 / (r1+r2+r3+r4)
---         v1_s = holdSY (signal [v1]) ab_s
---         v2 = vref * (r1+r2) / (r1+r2+r3+r4)
---         v2_s = holdSY (signal [v2]) ab_s
---         v3 = vref * (r1+r2+r3) / (r1+r2+r3+r4)
---         v3_s = holdSY (signal [v3]) ab_s
---         vref = 1
---         -- Infinite Abst signal
---         ab_s = signal $ map (\_ -> Abst) [1..]
-
--- | 'comparatorNetwork' compares the input signal with the comparing voltages.
--- comparatorNetwork :: Signal Voltages    -- ^ Scaled voltages
---                   -> Signal Double      -- ^ Input signal
---                   -> Signal Bits        -- ^ Output signal
--- comparatorNetwork volt input = output
---   where b1 = headS $ comparator input $ signal [v1]
---         b2 = headS $ comparator input $ signal [v2]
---         b3 = headS $ comparator input $ signal [v3]
---         output = signal [(b1, b2, b3)]
-
-
--- | 'comparator' one bit comparator
--- comparator :: Signal Double             -- ^ (+) input
---            -> Signal Double             -- ^ (-) input
---            -> Signal Bool               -- ^ output
--- comparator = zipWithSY (compare)
---   where compare a b
---           | a - b <= 0 = False
---           | otherwise = True
-
--- | 'decoder' takes the thermometer code and outputs BCD.
-
-
-
-
-flashADC :: [Double]
-          -> Signal Double
-          -> Signal Integer
+flashADC :: [Double]                    -- ^ Resistance values
+          -> Signal Double              -- ^ Input signal
+          -> Signal Integer             -- ^ Output signal
 flashADC resistors input = decoder $ compNetwork input $ resNetwork resistors
-  where
-    decoder :: [Signal Integer] -> Signal Integer
-    decoder = foldl1 (zipWithSY (+))
-    compNetwork :: Signal Double -> [Double] -> [Signal Integer]
-    compNetwork input = zipWith (\i v -> mapSY (compFunc v) i) (repeat input)
-    compFunc v i
-      | v <= i = 1
-      | otherwise = 0
-    vdd = 1
 
-resNetwork :: [Double] -> [Double]
+-- | 'decoder' takes the thermometer code and outputs integers.
+decoder :: [Signal Integer]             -- ^ Bit inputs
+        -> Signal Integer               -- ^ Output signal
+decoder = foldl1 (zipWithSY (+))
+
+-- | 'compNetwork' implements the comparator array.
+compNetwork :: Signal Double            -- ^ ADC input signal
+            -> [Double]                 -- ^ Voltage thresholds
+            -> [Signal Integer]         -- ^ Bit outputs
+compNetwork input = zipWith (\i v -> mapSY (comparator v) i) (repeat input)
+
+-- | 'comparator' is the one bit quantizer.
+comparator :: Double                    -- ^ (+) input
+           -> Double                    -- ^ (-) input
+           -> Integer                   -- ^ Output
+comparator i v
+  | v <= i = 0
+  | otherwise = 1
+
+-- | 'resNetwork' implements the resistor voltage scaling network.
+resNetwork :: [Double]                  -- ^ Resistor values
+           -> [Double]                  -- ^ Threshold voltages
 resNetwork resistors = init $ tail $ scanl (\v r -> v + vdd * r / (sumR)) 0 resistors
   where vdd = 1
         sumR = sum resistors
 
-
-
-
-
--- -- | 'rcFilter' models the first order RC filter system.
--- rcFilter :: Double              -- ^ Resistance
---          -> Double              -- ^ Capacitance
---          -> Double              -- ^ Discretization timestep, @T@
---          -> Signal Double       -- ^ Input signal, @Vin[k]@
---          -> Signal Double       -- ^ Output signal, @Vo[k]@
--- rcFilter r c t = mealySY nsf out 0
---   where nsf state input = (t*r*c)/(t+r*c)*(1/(r*c) * input + 1/t * state)
---         out state _ = state
 
 -- -- | 'simulate' takes the system parameters and dumps the step response.
 -- simulate :: Double              -- ^ Resistance
