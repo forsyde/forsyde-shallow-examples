@@ -8,35 +8,18 @@
 -- Stability   :  experimental
 -- Portability :  portable
 --
--- The first order RC circuit is described by the differential
--- equation dVo/dt + Vo/(RC) = Vin/(RC), in which Vo refers to the output
--- voltage and Vin to the input voltage. In this demo we consider a
--- discrete time approximation of this system.
+-- 
 --
 -- =Mathematical formulation
 --
--- We consider a timestep @T@ which models the discretization of the
--- time. In this way, we denote @V[n]@ as discrete signal
--- approximating the continuous time signal @V(nT)@. The simplest
--- model for the derivative is a first order approximation in which
--- @V'[k] = 1/T * (V[k] - V[k-1])@.
---
--- Plugging this into the differential equation gives, after some
--- manipulation: Vo[k] = (T*R*C)/(T+RC)*(1/(R*C) * Vin[k] + 1/T * Vo[k-1]).
 -- 
 -- =ForSyDe modeling
 --
--- The discrete time equation derived above suggests us that the
--- system should be able to remember the last output, that is, it is a
--- stateful system. We choose to model it by means of a mealySY
--- process contructor as the output depends on the state of the system
--- and on the input.
 -- 
 -- =Running the demo
 -- 
--- To run the demo you need the
--- <http://hackage.haskell.org/package/ForSyDe ForSyDe package>
--- installed in your environment. For plotting, you need the
+-- To run the demo you need the ForSyDe installed in your
+-- environment. For plotting, you need the
 -- <http://gnuplot.sourceforge.net Gnuplot package>.
 --
 -- To calculate 10000 samples for R=1e3 Omhs, C=1e-6 F, T=1e-6run in @ghci@:
