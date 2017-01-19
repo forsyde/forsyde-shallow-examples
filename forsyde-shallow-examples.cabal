@@ -26,8 +26,19 @@ library
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbitsDeath,
                        ForSyDe.Shallow.Example.Synchronous.RCFilter,
                        ForSyDe.Shallow.Example.Synchronous.Springs,
-                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver
-                       ForSyDe.Shallow.Example.Synchronous.PitchControl
+                       ForSyDe.Shallow.Example.Synchronous.PitchControl,
+                       ForSyDe.Shallow.Example.Synchronous.PitchControl.PitchControlMain,
+                       ForSyDe.Shallow.Example.Synchronous.PitchControl.PitchControlSS,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Transceiver,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Controller,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.EncDec,
+                       ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.TransceiverSystem
+
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.6 && <6, ForSyDe-Shallow >=3.3 && <4, random >=1.1 && <2
