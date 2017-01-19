@@ -53,76 +53,102 @@ module ForSyDe.Shallow.Example.Synchronous.FlashADC where
 import ForSyDe.Shallow
 
 type Resistors = (Double, Double, Double, Double)
-type Voltages = (Double, Double, Double)
+type Voltages = Signal Double
 type Bits = (Bool, Bool, Bool)
 
 -- | 'flashADC' is the top level module.
 
--- | 'voltageScaling' takes Vref and resistor values and generates the comparing voltages.
-voltageScaling :: Resistors             -- ^ Resistor network
-               -> Signal Voltages       -- ^ Scaled voltages
-voltageScaling (r1,r2,r3,r4) = holdSY (v1,v2,v3) $ signal $ map (\_ -> Abst) [1..]
-  where v1 = vref * r1 / (r1+r2+r3+r4)
-        v2 = vref * (r1+r2) / (r1+r2+r3+r4)
-        v3 = vref * (r1+r2+r3) / (r1+r2+r3+r4)
-        vref = 1
+-- -- | 'voltageScaling' takes Vref and resistor values and generates the comparing voltages.
+-- voltageScaling :: Resistors             -- ^ Resistor network
+--                -> Signal Voltages       -- ^ Scaled voltages
+-- voltageScaling (r1,r2,r3,r4) = holdSY (signal [v1,v2,v3]) $ signal $ map (\_ -> Abst) [1..]
+--   where v1 = vref * r1 / (r1+r2+r3+r4)
+--         v1_s = holdSY (signal [v1]) ab_s
+--         v2 = vref * (r1+r2) / (r1+r2+r3+r4)
+--         v2_s = holdSY (signal [v2]) ab_s
+--         v3 = vref * (r1+r2+r3) / (r1+r2+r3+r4)
+--         v3_s = holdSY (signal [v3]) ab_s
+--         vref = 1
+--         -- Infinite Abst signal
+--         ab_s = signal $ map (\_ -> Abst) [1..]
 
 -- | 'comparatorNetwork' compares the input signal with the comparing voltages.
-comparatorNetwork :: Signal Voltages    -- ^ Scaled voltages
-                  -> Signal Double      -- ^ Input signal
-                  -> Signal Bits        -- ^ Output signal
-comparatorNetwork ((v1,v2,v3):-xs) input = output
-  where b1 = headS $ comparator input $ signal [v1]
-        output = signal [(b1, True, True)]
+-- comparatorNetwork :: Signal Voltages    -- ^ Scaled voltages
+--                   -> Signal Double      -- ^ Input signal
+--                   -> Signal Bits        -- ^ Output signal
+-- comparatorNetwork volt input = output
+--   where b1 = headS $ comparator input $ signal [v1]
+--         b2 = headS $ comparator input $ signal [v2]
+--         b3 = headS $ comparator input $ signal [v3]
+--         output = signal [(b1, b2, b3)]
 
 
 -- | 'comparator' one bit comparator
-comparator :: Signal Double             -- ^ (+) input
-           -> Signal Double             -- ^ (-) input
-           -> Signal Bool               -- ^ output
-comparator = zipWithSY (compare)
-  where compare a b
-          | a - b <= 0 = False
-          | otherwise = True
+-- comparator :: Signal Double             -- ^ (+) input
+--            -> Signal Double             -- ^ (-) input
+--            -> Signal Bool               -- ^ output
+-- comparator = zipWithSY (compare)
+--   where compare a b
+--           | a - b <= 0 = False
+--           | otherwise = True
 
 -- | 'decoder' takes the thermometer code and outputs BCD.
 
 
 
 
+flashADC :: [Double]
+          -> Signal Double
+          -> Signal Integer
+flashADC resistors input = decoder $ compNetwork input $ resNetwork resistors
+  where
+    decoder :: [Signal Integer] -> Signal Integer
+    decoder = foldl1 (zipWithSY (+))
+    compNetwork :: Signal Double -> [Double] -> [Signal Integer]
+    compNetwork input = zipWith (\i v -> mapSY (compFunc v) i) (repeat input)
+    compFunc v i
+      | v <= i = 1
+      | otherwise = 0
+    vdd = 1
+
+resNetwork :: [Double] -> [Double]
+resNetwork resistors = init $ tail $ scanl (\v r -> v + vdd * r / (sumR)) 0 resistors
+  where vdd = 1
+        sumR = sum resistors
 
 
 
 
--- | 'rcFilter' models the first order RC filter system.
-rcFilter :: Double              -- ^ Resistance
-         -> Double              -- ^ Capacitance
-         -> Double              -- ^ Discretization timestep, @T@
-         -> Signal Double       -- ^ Input signal, @Vin[k]@
-         -> Signal Double       -- ^ Output signal, @Vo[k]@
-rcFilter r c t = mealySY nsf out 0
-  where nsf state input = (t*r*c)/(t+r*c)*(1/(r*c) * input + 1/t * state)
-        out state _ = state
 
--- | 'simulate' takes the system parameters and dumps the step response.
-simulate :: Double              -- ^ Resistance
-         -> Double              -- ^ Capacitance
-         -> Double              -- ^ Discretization timestep
-         -> Int                 -- ^ Number of samples
-         -> Signal Double       -- ^ Output signal
-simulate r c t stop = rcFilter r c t $ (takeS stop ones)
-  where ones = 1.0:-ones
+-- -- | 'rcFilter' models the first order RC filter system.
+-- rcFilter :: Double              -- ^ Resistance
+--          -> Double              -- ^ Capacitance
+--          -> Double              -- ^ Discretization timestep, @T@
+--          -> Signal Double       -- ^ Input signal, @Vin[k]@
+--          -> Signal Double       -- ^ Output signal, @Vo[k]@
+-- rcFilter r c t = mealySY nsf out 0
+--   where nsf state input = (t*r*c)/(t+r*c)*(1/(r*c) * input + 1/t * state)
+--         out state _ = state
 
--- | 'plotOutput' uses the CTLib plot capabilities to plot the
--- outpu. In a later version, a plotter to Synchornous signals will be
--- developed.
-plotOutput :: Double            -- ^ Resistance
-           -> Double            -- ^ Capacitance
-           -> Double            -- ^ Discretization timestep
-           -> Int               -- ^ Number of samples
-           -> IO String         -- ^ plot
-plotOutput r c t stop = plotCT' (toRational t) [(output, "output")]
-  where output = d2aConverter DAhold (toRational t) $
-                 rcFilter r c t $ ((takeS stop ones) +-+ (takeS stop zeros))
-        ones = 1.0:-ones
-        zeros = 0.0:-zeros
+-- -- | 'simulate' takes the system parameters and dumps the step response.
+-- simulate :: Double              -- ^ Resistance
+--          -> Double              -- ^ Capacitance
+--          -> Double              -- ^ Discretization timestep
+--          -> Int                 -- ^ Number of samples
+--          -> Signal Double       -- ^ Output signal
+-- simulate r c t stop = rcFilter r c t $ (takeS stop ones)
+--   where ones = 1.0:-ones
+
+-- -- | 'plotOutput' uses the CTLib plot capabilities to plot the
+-- -- outpu. In a later version, a plotter to Synchornous signals will be
+-- -- developed.
+-- plotOutput :: Double            -- ^ Resistance
+--            -> Double            -- ^ Capacitance
+--            -> Double            -- ^ Discretization timestep
+--            -> Int               -- ^ Number of samples
+--            -> IO String         -- ^ plot
+-- plotOutput r c t stop = plotCT' (toRational t) [(output, "output")]
+--   where output = d2aConverter DAhold (toRational t) $
+--                  rcFilter r c t $ ((takeS stop ones) +-+ (takeS stop zeros))
+--         ones = 1.0:-ones
+--         zeros = 0.0:-zeros
