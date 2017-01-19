@@ -1,5 +1,5 @@
-forsyde-haskell-demonstrators
-===============================
+forsyde-shallow-examples
+========================
 
 Demonstrators implemented with the ForSyDe-Haskell Shallow modeling library. 
 
