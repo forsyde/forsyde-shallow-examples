@@ -2,7 +2,7 @@
 -- For further documentation, see http://haskell.org/cabal/users-guide/
 
 name:                forsyde-shallow-examples
-version:             0.2.0.0
+version:             1.0.0.0
 -- synopsis:            
 description:
   Collection of demo applications for the ForSyDe.Shallow library     
