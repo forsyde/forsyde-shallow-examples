@@ -8,14 +8,8 @@
 -- Stability   :  experimental
 -- Portability :  portable
 --
--- 
+-- This module shows the model of a flash architecture ADC.
 --
--- =Mathematical formulation
---
--- 
--- =ForSyDe modeling
---
--- 
 -- =Running the demo
 -- 
 -- To run the demo you need the ForSyDe installed in your
