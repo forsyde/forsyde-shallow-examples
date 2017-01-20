@@ -24,45 +24,50 @@
 --
 -- To calculate 10000 samples for R=1e3 Omhs, C=1e-6 F, T=1e-6run in @ghci@:
 --
--- >>> simulate 1e3 1e-6 1e-6 10000
+-- >>> simulate 4
 -- 
--- To plot the response for a square wave input, run in @ghci@:
+-- To plot the response for a sine wave input, run in @ghci@:
 --
--- >>> plotOutput 1e3 1e-6 1e-6 10000
+-- >>> plotOutput 4 0.01 1000
 -----------------------------------------------------------------------------
 
 module ForSyDe.Shallow.Example.Synchronous.FlashADC where
 
 import ForSyDe.Shallow
 
+type Resistance = Double
+type Voltage = Double
+type Code = Integer
+type Bits = Integer
+
 -- | 'flashADC' is the top level module.
-flashADC :: [Double]                    -- ^ Resistance values
-          -> Signal Double              -- ^ Input signal
-          -> Signal Integer             -- ^ Output signal
+flashADC :: [Resistance]                -- ^ Resistance values
+          -> Signal Voltage             -- ^ Input signal
+          -> Signal Code                -- ^ Output signal
 flashADC resistors input = decoder $ compNetwork input $ resNetwork resistors
 
 -- | 'decoder' takes the thermometer code and outputs integers.
-decoder :: [Signal Integer]             -- ^ Bit inputs
-        -> Signal Integer               -- ^ Output signal
+decoder :: [Signal Bits]                -- ^ Bit inputs
+        -> Signal Code                  -- ^ Output signal
 decoder = foldl1 (zipWithSY (+))
 
 -- | 'compNetwork' implements the comparator array.
-compNetwork :: Signal Double            -- ^ ADC input signal
-            -> [Double]                 -- ^ Voltage thresholds
-            -> [Signal Integer]         -- ^ Bit outputs
+compNetwork :: Signal Voltage           -- ^ ADC input signal
+            -> [Voltage]                -- ^ Voltage thresholds
+            -> [Signal Bits]            -- ^ Bit outputs
 compNetwork input = zipWith (\i v -> mapSY (comparator v) i) (repeat input)
 
 -- | 'comparator' is the one bit quantizer.
-comparator :: Double                    -- ^ (+) input
-           -> Double                    -- ^ (-) input
-           -> Integer                   -- ^ Output
+comparator :: Voltage                   -- ^ (+) input
+           -> Voltage                   -- ^ (-) input
+           -> Bits                      -- ^ Output
 comparator i v
   | v <= i = 0
   | otherwise = 1
 
 -- | 'resNetwork' implements the resistor voltage scaling network.
-resNetwork :: [Double]                  -- ^ Resistor values
-           -> [Double]                  -- ^ Threshold voltages
+resNetwork :: [Resistance]              -- ^ Resistor values
+           -> [Voltage]                 -- ^ Threshold voltages
 resNetwork resistors = init $ tail $ scanl (\v r -> v + vdd * r / (sumR)) 0 resistors
   where vdd = 1
         sumR = sum resistors
@@ -70,7 +75,7 @@ resNetwork resistors = init $ tail $ scanl (\v r -> v + vdd * r / (sumR)) 0 resi
 -- | 'simulate' takes the system parameters and runs the simulation
 -- with a sine wave input.
 simulate :: Int                         -- ^ ADC resolution
-         -> Signal Integer              -- ^ ADC output
+         -> Signal Code                 -- ^ ADC output
 simulate res = flashADC resistors input
   where resistors = replicate (2^res) 1
         input = signal $ map (\t -> 0.5*sin(2*pi*t)+0.5) linspace
