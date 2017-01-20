@@ -39,6 +39,8 @@ type Resistance = Double
 type Voltage = Double
 type Code = Integer
 type Bits = Integer
+type Time = Double
+type Frequency = Double
 
 -- | 'flashADC' is the top level module.
 flashADC :: [Resistance]                -- ^ Resistance values
@@ -75,11 +77,11 @@ resNetwork resistors = init $ tail $ scanl (\v r -> v + vdd * r / (sumR)) 0 resi
 -- | 'simulate' takes the system parameters and runs the simulation
 -- with a sine wave input.
 simulate :: Int                         -- ^ ADC resolution
+         -> Int                         -- ^ Number of samples
          -> Signal Code                 -- ^ ADC output
-simulate res = flashADC resistors input
+simulate res n = flashADC resistors input
   where resistors = replicate (2^res) 1
-        input = signal $ map (\t -> 0.5*sin(2*pi*t)+0.5) linspace
-        linspace = map (\t -> t/100) [1..100]
+        input = sineWave' 1 0.5 3 n
 
 -- | 'plotOutput' uses the CTLib plot capabilities to plot the
 -- output. In a later version, a plotter to Synchornous signals will be
@@ -88,9 +90,32 @@ plotOutput :: Int                       -- ^ Resolution
            -> Double                    -- ^ Discretization timestep
            -> Int                       -- ^ Number of samples
            -> IO String                 -- ^ plot
-plotOutput res t stop = plotCT' (toRational t) [(output, "output")]
+plotOutput res t n = plotCT' (toRational t) [(output, "output")]
   where output = d2aConverter DAhold (toRational t) adcSignal
-        adcSignal = signal $ map (toRational) $ fromSignal $ flashADC resistors input
+        adcSignal = signal $ map (toRational) $ fromSignal $ 
+                    flashADC resistors input
         resistors = replicate (2^res) 1
-        input = signal $ map (\t -> 0.5*sin(2*pi*t)+0.5) linspace
-        linspace = map (\t -> t/1000) [1..1000]
+        input = sineWave' 1 0.5 3 n
+
+-- | 'sineWave' is an auxiliary function that creates a sine wave signal for
+-- simulation purposes.
+sineWave' :: Voltage                     -- ^ Amplitude
+          -> Voltage                     -- ^ Offset
+          -> Frequency                   -- ^ Frequency
+          -> Int                         -- ^ Number of samples
+          -> Signal Time                 -- ^ Output signal
+sineWave' amp offset freq n = signal sineW
+  where sineW = map (\t -> (amp/2) * sin(2*pi*freq*t) + offset) grid
+        grid = linspace 0 1 n
+
+-- | 'linspace' is an auxiliary function that creates an uniform
+-- spaced sampling grid for simulation purposes.
+linspace :: Time                        -- ^ Start time
+         -> Time                        -- ^ Stop time
+         -> Int                         -- ^ Number of samples
+         -> [Time]                      -- ^ Sampling grid
+linspace start stop n = map (scale) nodes
+  where n' = fromIntegral n
+        nodes = map (fromIntegral) [0..(n-1)]
+        scale t = t * length / (n' - 1) + start
+        length = stop - start 
