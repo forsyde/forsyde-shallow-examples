@@ -28,6 +28,7 @@
 module ForSyDe.Shallow.Example.Synchronous.FlashADC where
 
 import ForSyDe.Shallow
+import Data.Complex
 
 type Resistance = Double
 type Voltage = Double
@@ -75,7 +76,21 @@ simulate :: Int                         -- ^ ADC resolution
          -> Signal Code                 -- ^ ADC output
 simulate res n = flashADC resistors input
   where resistors = replicate (2^res) 1
-        input = sineWave' 1 0.5 3 n
+        input = sineWave' 0.5 0.5 50 n
+
+-- | 'plotFFT' runs the simulation with a sine wave input
+plotFFT :: Int                  -- ^ ADC resolution
+        -> Int                  -- ^ FFT depth (power of 2)
+        -> IO String            -- ^ plot
+plotFFT res n = plotCT' (toRational 1.0) [(g_out, "g")]
+  where g_out = d2aConverter DAhold (toRational 1.0) $ signal g
+        a = fromSignal $ simulate res n
+        b = (:+) <$> (map ((\x -> x/2^res - 0.5).fromIntegral) a)
+        c = zipWith ($) b $ repeat 0.0
+        d = vector c
+        e = fromVector $ fft n d
+        f = map ((*20).(logBase 10).(\x -> 2*x/(fromIntegral n)) . magnitude) e
+        g = (take (n `div` 2) f)
 
 -- | 'plotOutput' uses the CTLib plot capabilities to plot the
 -- output. In a later version, a plotter to Synchornous signals will be
@@ -87,9 +102,7 @@ plotOutput :: Int                       -- ^ Resolution
 plotOutput res t n = plotCT' (toRational t) [(output, "output")]
   where output = d2aConverter DAhold (toRational t) adcSignal
         adcSignal = signal $ map (toRational) $ fromSignal $ 
-                    flashADC resistors input
-        resistors = replicate (2^res) 1
-        input = sineWave' 1 0.5 3 n
+                    simulate res n
 
 -- | 'sineWave' is an auxiliary function that creates a sine wave signal for
 -- simulation purposes.
@@ -113,3 +126,4 @@ linspace start stop n = map (scale) nodes
         nodes = map (fromIntegral) [0..(n-1)]
         scale t = t * length / (n' - 1) + start
         length = stop - start 
+
