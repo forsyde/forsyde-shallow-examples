@@ -56,7 +56,8 @@ List of demos
   1. `FibonacciRabbits`: Models to Fibonacci rabbits reproduction system.
   1. `FibonacciRabbitsDeath`: Models the Fibonacci reproduction system considering rabbits death rate.
   1. `RCFilter`: Models a first order low pass RC filter.
-
+  1. `MulAcc` : Models a multiply-accumulator. Adaptation from a [ForSyDe-SystemC](https://github.com/forsyde/ForSyDe-SystemC) version, bridging between the two languages.
+  
 #### 2. Untimed MoC
 
   1. `AdaptiveAmp`: Models an adaptive amplifier.
