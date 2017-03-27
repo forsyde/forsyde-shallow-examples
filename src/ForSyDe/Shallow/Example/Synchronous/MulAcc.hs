@@ -8,72 +8,93 @@
 -- Stability   :  experimental
 -- Portability :  portable
 --
--- = Description ===========================================================
+-- = Description 
 --
--- This demo is a direct adaptation of the mulacc example of the synchronous
--- (sy) model of ForSyDe-SystemC, originally made by Hosein Attarzadeh. It
--- helps to compare the change in size of the code for the same application
--- for both languages. It's also possible to correspond implementation
--- structures of Haskell and SystemC to help learning one of those languages.
+-- This demo is a direct adaptation of the mulacc example of the
+-- synchronous (SY) model of
+-- <https://github.com/forsyde/ForSyDe-SystemC ForSyDe-SystemC>,
+-- originally made by Hosein Attarzadeh. It helps to compare the
+-- change in size of the code for the same application for both
+-- languages. It's also possible to correspond implementation
+-- structures of Haskell and SystemC to help learning one of those
+-- languages.
 --
--- It's worth to note that the separation in multiple functions in the 'Main'
--- section was only implemented to reflect the SystemC's code. A more clean
--- and "common" way of implementing this system in Haskell is presented in
--- 'mulacc_alt' function in the 'Alternative version' section.
+-- It's worth to note that the separation in multiple functions in the
+-- 'Main' section was only implemented to reflect the SystemC's
+-- code. A more clean and "common" way of implementing this system in
+-- Haskell is presented in 'mulacc_alt' function in the 'Alternative
+-- version' section.
 --
--- = Circuit explanation ====================================================
+-- = Circuit explanation 
 --
--- The multiplicative accumulator (mulacc) multiplies two input arguments
--- and sum it with the accumulation stored (one-cycle delay, initially zero).
--- The result of the sum is stored as the new accumulation and is used in the
--- next clock cycle.
+-- The multiplicative accumulator (mulacc) multiplies two input
+-- arguments and sum it with the accumulation stored (one-cycle delay,
+-- initially zero).  The result of the sum is stored as the new
+-- accumulation and is used in the next clock cycle.
 --
--- The circuit is composed by a multiplier [*], and adder [+] and a register
--- [R], with inputs 'a' and 'b' and output 'y'.
+-- The circuit is composed by a multiplier @[*]@, and adder @[+]@ and
+-- a register @[R]@, with inputs 'a' and 'b' and output 'y'.
 --
---                                        accum
---       a -----,              ,---addi2---[R]<--,
---              v              v                 |
---       b --->[*]---addi1--->[+]------acci----------> result
---            mul1           add1
+-- >                                       accum
+-- >      a -----,              ,---addi2---[R]<--,
+-- >             v              v                 |
+-- >      b --->[*]---addi1--->[+]------acci----------> result
+-- >           mul1           add1
 --
--- = Running the demo =======================================================
+-- = Running the demo 
 --
--- To run a demo of the mulacc, it's only necessary to run the demo functions
--- presented at the end of this file in the 'Demo run functions' section. The
--- 'sim_mulacc' runs an example using 'mulacc' and 'sim_alt' runs the same
--- example, however using 'mulacc_alt'. The signal 'ticks' was defined to
--- determine the number of iterations and 'zipWith3SY' to limit the execution
--- to have the determined number of iterations.
+-- To run a demo of the mulacc, it's only necessary to run the demo
+-- functions presented at the end of this file in the 'Demo run
+-- functions' section. The 'sim_mulacc' runs an example using 'mulacc'
+-- and 'sim_alt' runs the same example, however using
+-- 'mulacc_alt'. The signal 'ticks' was defined to determine the
+-- number of iterations and 'zipWith3SY' to limit the execution to
+-- have the determined number of iterations.
 --
--- The demo reflects the test generated at the 'top.hpp' file of the SystemC
--- version. A constant 'srca' is used as operand 'a' and a signal generation
--- function 'siggen' creates the signal 'srcb', which is used as operand 'b'.
--- The number of iterations, or 'ticks', is defined in by 'num_iterations' of
--- the 'sim_run' function.
+-- The demo reflects the test generated at the 'top.hpp' file of the
+-- SystemC version. A constant 'srca' is used as operand 'a' and a
+-- signal generation function 'siggen' creates the signal 'srcb',
+-- which is used as operand 'b'.  The number of iterations, or
+-- 'ticks', is defined in by 'num_iterations' of the 'sim_run'
+-- function.
 --
--- To correspond with the SystemC test, the 'siggen' is a increment function
--- with initial value 1, the constant value is 3 and 'num_iterations' is set
--- as 10 by default. The output of the SystemC simulation is:
+-- To correspond with the SystemC test, the 'siggen' is a increment
+-- function with initial value 1, the constant value is 3 and
+-- 'num_iterations' is set as 10 by default. The output of the SystemC
+-- simulation is:
 --
---       output value: 3
---       output value: 9
---       output value: 18
---       output value: 30
---       output value: 45
---       output value: 63
---       output value: 84
---       output value: 108
---       output value: 135
---       output value: 165
+-- >      output value: 3
+-- >      output value: 9
+-- >      output value: 18
+-- >      output value: 30
+-- >      output value: 45
+-- >      output value: 63
+-- >      output value: 84
+-- >      output value: 108
+-- >      output value: 135
+-- >      output value: 165
 --
 -- So the expected output of the Haskell version is:
 --
---       {3,9,18,30,45,63,84,108,135,165}
+-- >>> sim_mulacc
+-- > {3,9,18,30,45,63,84,108,135,165}
 --
 -----------------------------------------------------------------------------
 
-module MulAcc where
+module ForSyDe.Shallow.Example.Synchronous.MulAcc (
+  -- * Version 1
+  --
+  -- | Direct adaptation of the ForSyDe-SystemC version.
+  mulacc, make_sdelay, make_scomb2, mul_func, add_func,
+
+  -- * Version 2
+  --
+  -- | Alternative, pure ForSyDe-Haskell version.
+  mulacc_alt,
+
+  -- * Testbench functions
+  num_iterations, sim_mulacc, sim_alt, sim_run, constant1, siggen1
+  ) where
 
 import ForSyDe.Shallow
 
@@ -148,7 +169,7 @@ sim_alt = sim_run $ mulacc_alt srca srcb
     where srca = constant1
           srcb = siggen1
 
--- | 'sim_run' executes a given number o iterations
+-- | 'sim_run' executes a given number of iterations
 sim_run :: Signal Integer -- ^ Output signal from circuit
         -> Signal Integer -- ^ Output signal limited by
 sim_run values = zipWithSY iteration values ticks
