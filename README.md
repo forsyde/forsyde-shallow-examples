@@ -8,18 +8,19 @@ Demonstrators implemented with the ForSyDe-Haskell Shallow modeling library.
 Installation
 ------------
 
-The example applications are provided as extensions to the `ForSyDe.Shallow` library, and can be imported or run in a `ghci` session. 
+The example applications are provided as extensions to the [`ForSyDe.Shallow`](https://github.com/forsyde/forsyde-shallow) library, and can be imported or run in a `ghci` session. Please make sure you acquire `ForSyDe-Shallow` prior to installing the examples.
 
-To install the applications globaly, you can use the following commands, provided you have installed Cabal:
+To install the applications globaly, you need to have installed `ForSyDe-Shallow` globally. Then, using the Cabal package manager, you can type in:
 
+    cabal configure  # configures the package for installation
     cabal install    # installs 'forsyde-shallow-examples' and all its dependencies globally
     ghci             # opens a GHC interpreter session from which you can import the applications
     
-To install the applications locally in a sandbox, you can use the following commands:
+To install the applications locally in a sandbox, you still need to acquire the `ForSyDe-Shallow` source project, but it does not need to be installed. You can use the following commands:
     
     cabal sandbox init # creates a sandbox in the current folder
     
-    # in case 'ForSyDe.Shallow' is not globally installed, you need to download/clone its source repo, and type
+    # you need to manually add the ForSyDe-Shallow dependency to the sandbox
     cabal sandbox add-source <path/to/forsyde-shallow>
     
     cabal install      # installs 'forsyde-shallow-examples' and all its dependencies locally, in the sandbox
