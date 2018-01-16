@@ -1,0 +1,88 @@
+\documentclass{article}
+\title{Shallow ForSyDe model of an equalizer system}
+\author{Ingo Sander}
+\usepackage{tikz}
+\usepackage{biblatex}
+\usepackage{filecontents}
+\usepackage{listings}
+\usepackage{color}
+\newcommand*{\ttfamilywithbold}{\fontfamily{lmtt}\selectfont}
+\lstloadlanguages{Haskell}
+
+\lstnewenvironment{code}
+{\lstset{style=customhaskell}%
+ \csname lst@SetFirstLabel\endcsname}
+{\csname lst@SaveFirstLabel\endcsname}
+
+\lstdefinestyle{customhaskell}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=l,
+  xleftmargin=\parindent,
+  language=Haskell,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamilywithbold,
+  keywordstyle=\bfseries\color{red!40!black},
+  commentstyle=\itshape\color{green!40!black},
+  stringstyle=\color{orange},
+}
+
+\begin{filecontents*}{ref.bib}
+﻿@phdthesis{San03,
+   author = {Sander, Ingo},
+   institution = {KTH, Microelectronics and Information Technology, IMIT},
+   note = {NR 20140805},
+   pages = {xvi, 228},
+   publisher = {Mikroelektronik och informationsteknik},
+   school = {KTH, Microelectronics and Information Technology, IMIT},
+   title = {System Modeling and Design Refinement in ForSyDe},
+   series = {Trita-IMIT. LECS},
+   ISSN = {1651-4076},
+   number = {03:03},
+   keywords = {Electronic System Design, Hardware/Software Co-Design, Electrical Engineering},
+   ISBN = {91-7283-501-X},
+   year = {2003}
+}
+\end{filecontents*}
+
+\addbibresource{ref.bib}
+
+\newcommand{\process}[1]{{\small\texttt{#1}}}
+\newcommand{\signal}[1]{$\overline{\mathtt{#1}}$}
+\newcommand{\constant}[1]{{\small\texttt{#1}}}
+\newcommand{\Abst}{$\bot$}
+
+
+\begin{document}
+
+This directory contains the Equalizer example, used in Sander's PhD Thesis \cite{San03}, and modelled using shallow-embedded signals.
+
+\input{Equalizer.lhs}
+\input{ButtonControl.lhs}
+\input{DistortionControl.lhs}
+
+
+\input{TestEqualizer.lhs}
+\input{TestButtonControl.lhs}
+
+\input{TestDistortionControl.lhs}
+
+% \input{AudioAnalyzer.lhs}
+% \input{TestAnalyzer.lhs}
+
+% \input{AudioFilter.lhs}
+% \input{TestFilter.lhs}
+
+% \input{EqualizerTypes.lhs}
+% \input{TestDFT.lhs}
+% \input{TestFIR.lhs}
+
+
+\printbibliography
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
