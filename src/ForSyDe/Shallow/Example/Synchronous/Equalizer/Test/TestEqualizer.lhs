@@ -11,29 +11,29 @@ import AudioAnalyzer
 audioIn = takeS (pts * 4) $ infiniteS (id) 1.0
 
 bassUp = signal [Prst Active, Prst Active, Abst, Abst,
-		 Prst Active, Prst Active, Abst, Abst,
-		 Prst Active, Prst Active, Abst, Abst,
-		 Prst Active, Prst Active, Abst, Abst]
+     Prst Active, Prst Active, Abst, Abst,
+     Prst Active, Prst Active, Abst, Abst,
+     Prst Active, Prst Active, Abst, Abst]
 
 bassDn = signal [Abst, Abst, Prst Active, Abst,
-		 Abst, Abst, Prst Active, Abst,
-		 Abst, Abst, Prst Active, Abst,
-		 Abst, Abst, Prst Active, Abst]
+     Abst, Abst, Prst Active, Abst,
+     Abst, Abst, Prst Active, Abst,
+     Abst, Abst, Prst Active, Abst]
 
 trebleUp = signal [Abst, Abst, Abst, Abst,
-		 Abst, Abst, Abst, Prst Active,
-		 Abst, Abst, Abst, Abst,
-		 Abst, Abst, Abst, Prst Active]
+     Abst, Abst, Abst, Prst Active,
+     Abst, Abst, Abst, Abst,
+     Abst, Abst, Abst, Prst Active]
 
 trebleDn = signal [Abst, Abst, Abst, Prst Active,
-		 Abst, Abst, Abst, Prst Active,
-		 Abst, Abst, Abst,  Prst Active,
-		 Abst, Abst, Abst, Prst Active]
+     Abst, Abst, Abst, Prst Active,
+     Abst, Abst, Abst,  Prst Active,
+     Abst, Abst, Abst, Prst Active]
 
 overrides = signal [Abst, Abst, Abst, Abst,
-		    Prst Lock, Abst, Abst, Abst,
-		    Abst, Prst CutBass, Abst, Abst,
-		    Prst Release,  Abst, Abst, Abst]
+        Prst Lock, Abst, Abst, Abst,
+        Abst, Prst CutBass, Abst, Abst,
+        Prst Release,  Abst, Abst, Abst]
 bass = infiniteS id 0.0
 treble = infiniteS id 0.0
 dataflow = audioAnalyzer 2 (audioFilter lpCoeff bpCoeff hpCoeff bass treble audioIn)
@@ -79,16 +79,16 @@ main = do
           -- Test AudioAnalyzer
           putStr "\n--> Test AudioAnalyzer \n"
           analyzerInfile <- openFile "Test/audioOut.dat" ReadMode
-	  analyzerOutfile <- openFile "Test/analyzerOut.dat" WriteMode
-	  analyzerContents <- hGetContents analyzerInfile
+    analyzerOutfile <- openFile "Test/analyzerOut.dat" WriteMode
+    analyzerContents <- hGetContents analyzerInfile
           putStr (show (audioAnalyzer pts ((readS analyzerContents) :: Signal Double)))
-	  hPutStr analyzerOutfile (writeS (audioAnalyzer pts ((readS analyzerContents) :: Signal Double)))
+    hPutStr analyzerOutfile (writeS (audioAnalyzer pts ((readS analyzerContents) :: Signal Double)))
           
-	  --fftInfile <- openFile "audioOut.txt" ReadMode
-	  --fftOutfile <- openFile "fftOut.txt" WriteMode
-	  --contents <- hGetContents fftInfile
-	  --putStr (writeS (((readS contents) :: Signal Double)))
-	  --hPutStr fftOutfile (writeS (((readS contents) :: Signal Double)))
-	  putStr "\nDone.\n"
+    --fftInfile <- openFile "audioOut.txt" ReadMode
+    --fftOutfile <- openFile "fftOut.txt" WriteMode
+    --contents <- hGetContents fftInfile
+    --putStr (writeS (((readS contents) :: Signal Double)))
+    --hPutStr fftOutfile (writeS (((readS contents) :: Signal Double)))
+    putStr "\nDone.\n"
 \end{code}
 

@@ -1,0 +1,54 @@
+\documentclass{article}
+\title{Shallow ForSyDe Model of an Equalizer System}
+\author{Ingo Sander}
+\usepackage{tikz}
+\usepackage{biblatex}
+\usepackage{equalizer-report}
+
+\addbibresource{ref.bib}
+
+\begin{document}
+
+\maketitle
+
+This directory contains the Equalizer example, used in Sander's PhD Thesis \cite{San03}, and modelled using shallow-embedded signals. 
+
+\begin{framed}
+  \textbf{NOTE:} in the code listings, the path of the \texttt{Equalizer} module within the \texttt{forsyde-shallow-examples} project has been replace with \texttt{...}
+\end{framed}
+
+
+\section{Equalizer top moule}
+\label{sec:equalizer-top-moule}
+\input{../Equalizer.lhs}
+
+\section{Internal types}
+\label{sec:internal-types}
+\input{../EqualizerTypes.lhs}
+
+\section{Button control module}
+\label{sec:butt-contr-module}
+\input{../ButtonControl.lhs}
+
+\section{Audio filter module}
+\label{sec:audio-filter-module}
+\input{../AudioFilter.lhs}
+
+\section{Audio analyzer module}
+\label{sec:audio-analyz-module}
+\input{../AudioAnalyzer.lhs}
+
+\section{Distorsion control module}
+\label{sec:dist-contr-module}
+\input{../DistortionControl.lhs}
+
+
+
+\printbibliography
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

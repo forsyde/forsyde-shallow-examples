@@ -1,0 +1,36 @@
+\usepackage[a4paper, margin=1.5in]{geometry}
+\usepackage{listings}
+\usepackage{framed}
+\usepackage{color}
+\newcommand*{\ttfamilywithbold}{\fontfamily{lmtt}\selectfont}
+\lstloadlanguages{Haskell}
+
+\lstnewenvironment{code}
+{\lstset{style=customhaskell}%
+ \csname lst@SetFirstLabel\endcsname}
+{\csname lst@SaveFirstLabel\endcsname}
+
+\lstdefinestyle{customhaskell}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=l,
+  xleftmargin=\parindent,
+  language=Haskell,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamilywithbold,
+  keywordstyle=\bfseries\color{red!60!black},
+  commentstyle=\itshape\color{green!40!black},
+  stringstyle=\color{orange},
+  morekeywords={Signal},
+  literate=
+  {ForSyDe.Shallow.Example.Synchronous.}{{\texttt{...}}}3
+  {->}{{$\rightarrow$}}2
+}
+
+
+\newcommand{\process}[1]{{\small\texttt{#1}}}
+\newcommand{\signal}[1]{$\overline{\mathtt{#1}}$}
+\newcommand{\constant}[1]{{\small\texttt{#1}}}
+\newcommand{\variable}[1]{{\small\emph{#1}}}
+\newcommand{\function}[1]{{\small\texttt{#1}}}
+\newcommand{\Abst}{\bot}

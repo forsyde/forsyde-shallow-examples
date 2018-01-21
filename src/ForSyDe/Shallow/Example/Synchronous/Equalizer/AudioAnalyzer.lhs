@@ -4,7 +4,7 @@ The \process{Audio Analyzer} analyzes the current bass level and raises a flag w
 
 \begin{figure}
 \centering
-\scalebox{0.8}{\mbox{\input{Figures/AudioAnalyzer.pstex_t}}}
+\scalebox{0.8}{\mbox{\input{figs/AudioAnalyzer.pdf_t}}}
 \caption{The \textit{Audio Analyzer} subsystem}
 \label{fig:AudioAnalyzerSubsystem}
 \end{figure}
@@ -13,11 +13,13 @@ As illutsrated in Figure \ref{fig:AudioAnalyzerSubsystem} the \process{Audio Ana
 
 Since \process{Group Samples} needs $N$ cycles for the grouping, it produces $N-1$ absent values $\perp$ for each grouped sample. Thus the following processes \process{DFT}, \process{Spectrum} and \process{Check Bass} are all $\Psi$-extended in order to be able to process the absent value $\Abst$.
 \begin{code}
-module AudioAnalyzer (audioAnalyzer) where
+module ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioAnalyzer (
+  audioAnalyzer
+  ) where
 
-import ForSyDe.Shallow
 import Data.Complex
-import EqualizerTypes
+import ForSyDe.Shallow
+import ForSyDe.Shallow.Example.Synchronous.Equalizer.EqualizerTypes
 
 input = 0.1 :- 0.2 :- input
 
@@ -28,28 +30,28 @@ nLow :: Int
 nLow = 3
 
 audioAnalyzer :: Int -> Signal Double -> Signal (AbstExt AnalyzerMsg)
-audioAnalyzer pts =  mapSY (psi checkBass) -- Check Bass 
-		   . mapSY (psi spectrum)  -- Spectrum
-		   . mapSY (psi (dft pts)) -- DFT
-		   . groupSY pts	   -- Group Samples 
-		   . mapSY toComplex
+audioAnalyzer pts =  mapSY (psi checkBass)   -- Check Bass 
+                     . mapSY (psi spectrum)  -- Spectrum
+                     . mapSY (psi (dft pts)) -- DFT
+                     . groupSY pts           -- Group Samples 
+                     . mapSY toComplex
 
 spectrum :: (RealFloat a) => Vector (Complex a) -> Vector a
 spectrum =  mapV log10 . selectLow nLow . mapV power . selectHalf . dropV 1
   where
     log10 x        = log x / log 10
+    power x        = (magnitude x) ^ 2
     selectLow n xs = takeV n xs
     selectHalf xs  = takeV half xs
-	       where half = floor (fromIntegral (lengthV xs) / 2)  
-    power x = (magnitude x) ^ 2
+      where half = floor (fromIntegral (lengthV xs) / 2)  
 
 checkBass :: Vector Double -> AnalyzerMsg
 checkBass = checkLimit limit . sumV
   where
-    checkLimit limit x | x > limit  = Fail
-	               | otherwise  = Pass
+    checkLimit limit x
+      | x > limit  = Fail
+      | otherwise  = Pass
     sumV vs = foldlV (+) 0.0 vs
-
 
 toComplex x = x :+ 0
 \end{code}

@@ -60,23 +60,23 @@ hpCoeffD = vector [
 --lpCoeffF8 = mapV real2Fixed8 lpCoeffD
 --bpCoeffF8 = mapV real2Fixed8 bpCoeffD
 --hpCoeffF8 = mapV real2Fixed8 hpCoeffD
---sF8	  = mapSY real2Fixed8 s
+--sF8    = mapSY real2Fixed8 s
 
 --lpCoeffF16 = mapV real2Fixed16 lpCoeffD
 --bpCoeffF16 = mapV real2Fixed16 bpCoeffD
 --hpCoeffF16 = mapV real2Fixed16 hpCoeffD
---sF16	  = mapSY real2Fixed16 s
+--sF16    = mapSY real2Fixed16 s
 
 audioFilterD = audioFilter lpCoeffD bpCoeffD hpCoeffD zeros zeros
 outDouble = audioFilter lpCoeffD bpCoeffD hpCoeffD zeros zeros s
---outF16	  = audioFilter lpCoeffF16 bpCoeffF16 hpCoeffF16 (mapSY real2Fixed16 zeros) (mapSY real2Fixed16 zeros) sF16
---outF8	  = audioFilter lpCoeffF8 bpCoeffF8 hpCoeffF8 (mapSY real2Fixed8 zeros)(mapSY real2Fixed8 zeros) sF8
+--outF16    = audioFilter lpCoeffF16 bpCoeffF16 hpCoeffF16 (mapSY real2Fixed16 zeros) (mapSY real2Fixed16 zeros) sF16
+--outF8    = audioFilter lpCoeffF8 bpCoeffF8 hpCoeffF8 (mapSY real2Fixed8 zeros)(mapSY real2Fixed8 zeros) sF8
 
 --writeAudioOut = writeFile "Test/AudioOut.for") . writeS 
 readAudioIn = readFile "Test/AudioIn.mat"
 
 testSeries = do contents <- readAudioIn
-		writeFile "Test/AudioOutFSD.ext" (writeS (audioFilterD (readS contents)))
---		writeAudioIn
+    writeFile "Test/AudioOutFSD.ext" (writeS (audioFilterD (readS contents)))
+--    writeAudioIn
 
 \end{code}

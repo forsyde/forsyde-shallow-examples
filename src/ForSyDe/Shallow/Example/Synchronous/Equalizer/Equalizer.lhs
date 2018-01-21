@@ -6,12 +6,12 @@ exceed a predefined threshold to avoid damage to the speakers.
 This specification can be naturally decomposed into four functions shown in
 Figure \ref{fig:Equalizer-Level1}. The subsystems \process{Button Control} and \process{Distortion Control}, are control dominated (grey shaded), while the \process{Audio Filter} and the \process{Audio Analyzer} are data flow dominated subsystems.  
 
-% \begin{figure}[h]
-% \centering
-% \input{Figures/Equalizer-Level1.pstex_t}
-% \caption{Subsystems of the \process{Equalizer}}
-% \label{fig:Equalizer-Level1}
-% \end{figure}
+\begin{figure}[h]
+ \centering
+ \input{figs/Equalizer-Level1.pdf_t}
+ \caption{Subsystems of the \process{Equalizer}}
+ \label{fig:Equalizer-Level1}
+\end{figure}
 
 The \process{Button Control} subsystem monitors the button inputs and the override
 signal from the subsystem \process{Distortion Control} and adjusts the current
@@ -26,30 +26,32 @@ necessary commands to the \process{Button Control} subsystem.
 The frequency characteristics of the \process{Equalizer} is adjusted by the coefficients for the three FIR-filters in the \process{AudioFilter}. 
 
 \begin{code}
-module Equalizer(equalizer) where
+module ForSyDe.Shallow.Example.Synchronous.Equalizer.Equalizer (
+  equalizer
+  ) where
 
 import ForSyDe.Shallow
 
-import ButtonControl
-import DistortionControl
-import AudioAnalyzer
-import AudioFilter
+import ForSyDe.Shallow.Example.Synchronous.Equalizer.ButtonControl
+import ForSyDe.Shallow.Example.Synchronous.Equalizer.DistortionControl
+import ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioAnalyzer
+import ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter
 \end{code}
 
 The structure of the equalizer is expressed as a network of blocks:
 
 \begin{code}
 equalizer lpCoeff bpCoeff hpCoeff dftPts 
-	  bassUp bassDn trebleUp trebleDn input = (bass, treble) 
+    bassUp bassDn trebleUp trebleDn input = (bass, treble) 
   where
     (bass, treble)  = buttonControl overrides bassUp bassDn 
-	                            trebleUp trebleDn
+                      trebleUp trebleDn
     output          = audioFilter lpCoeff bpCoeff hpCoeff bass 
-				  treble input
+                      treble input
     distFlag        = audioAnalyzer dftPts output
     overrides       = distortionControl delayedDistFlag
     delayedDistFlag = delaySY Abst distFlag
 \end{code}
 
-Since the equalizer contains a feedback loop, the signal \process{DistFlag} is delayed one event cycle using the initial value \Abst.
+Since the equalizer contains a feedback loop, the signal \process{DistFlag} is delayed one event cycle using the initial value $\Abst$.
 
