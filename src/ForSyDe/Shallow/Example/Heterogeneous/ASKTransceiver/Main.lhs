@@ -23,9 +23,9 @@ import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian
 
 
 import ForSyDe.Shallow
-import ForSyDe.Shallow.CTLib
-import ForSyDe.Shallow.FilterLib
-import ForSyDe.Shallow.BitVector
+import ForSyDe.Shallow.MoC.CT
+import ForSyDe.Shallow.Utility.FilterLib
+import ForSyDe.Shallow.Core.BitVector
 
 
 

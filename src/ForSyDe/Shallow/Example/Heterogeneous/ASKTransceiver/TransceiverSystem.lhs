@@ -19,8 +19,8 @@ module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.TransceiverSystem
 -- import BitVector
 
 import ForSyDe.Shallow
-import ForSyDe.Shallow.CTLib
-import ForSyDe.Shallow.BitVector
+import ForSyDe.Shallow.Core.BitVector
+import ForSyDe.Shallow.MoC.CT
 
 import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters
 import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities

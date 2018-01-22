@@ -12,17 +12,14 @@ The example applications are provided as extensions to the [`ForSyDe.Shallow`](h
 
 To install the applications globaly, you need to have installed `ForSyDe-Shallow` globally. Then, using the Cabal package manager, you can type in:
 
-    cabal configure  # configures the package for installation
+    cabal update     # updates the cabal repositories information
     cabal install    # installs 'forsyde-shallow-examples' and all its dependencies globally
     ghci             # opens a GHC interpreter session from which you can import the applications
     
 To install the applications locally in a sandbox, you still need to acquire the `ForSyDe-Shallow` source project, but it does not need to be installed. You can use the following commands:
     
+    cabal update       # updates the latest repositories information
     cabal sandbox init # creates a sandbox in the current folder
-    
-    # you need to manually add the ForSyDe-Shallow dependency to the sandbox
-    cabal sandbox add-source <path/to/forsyde-shallow>
-    
     cabal install      # installs 'forsyde-shallow-examples' and all its dependencies locally, in the sandbox
     cabal repl         # opens a GHC interpreter session for the sandbox from which you can import the applications
 
@@ -58,7 +55,8 @@ List of demos
   1. `FibonacciRabbitsDeath`: Models the Fibonacci reproduction system considering rabbits death rate.
   1. `RCFilter`: Models a first order low pass RC filter.
   1. `MulAcc` : Models a multiply-accumulator. Adaptation from a [ForSyDe-SystemC](https://github.com/forsyde/ForSyDe-SystemC) version, bridging between the two languages.
-  
+  1. `Equalizer`: Models an equalizer system used in [Sander's PhD thesis](http://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Akth%3Adiva-3525). 
+
 #### 2. Untimed MoC
 
   1. `AdaptiveAmp`: Models an adaptive amplifier.
