@@ -2,20 +2,24 @@
 -- For further documentation, see http://haskell.org/cabal/users-guide/
 
 name:                forsyde-shallow-examples
-version:             1.0.0.0
+version:             1.0.1.0
 -- synopsis:            
 description:
   Collection of demo applications for the ForSyDe.Shallow library     
 license:             BSD3
 license-file:        LICENSE
 author:              Ingo Sander,
-                     José Edil Guimarães De Medeiros
+                     José Edil Guimarães De Medeiros,
+                     George Ungureanu
 maintainer:          ugeorge@kth.se, j.edil@ene.unb.br
 copyright:           Ingo Sander and authors
 -- category:            
 build-type:          Simple
 extra-source-files:  README.md
-extra-doc-files:     files/*.pdf
+                   , files/test-equalizer/*.mat
+                   , files/test-imageproc/*.ppm
+extra-doc-files:     files/docs/*.pdf
+                   , files/images/*.png
 cabal-version:       >=1.10
 
 library
@@ -30,6 +34,18 @@ library
                        ForSyDe.Shallow.Example.Synchronous.PitchControl,
                        ForSyDe.Shallow.Example.Synchronous.PitchControl.PitchControlMain,
                        ForSyDe.Shallow.Example.Synchronous.PitchControl.PitchControlSS,
+                       ForSyDe.Shallow.Example.Synchronous.Equalizer,
+                       ForSyDe.Shallow.Example.Synchronous.Equalizer.Equalizer,
+                       ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioAnalyzer,
+                       ForSyDe.Shallow.Example.Synchronous.Equalizer.ButtonControl,
+                       ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter,
+                       ForSyDe.Shallow.Example.Synchronous.Equalizer.DistortionControl,
+                       ForSyDe.Shallow.Example.Synchronous.Equalizer.EqualizerTypes,
+                       ForSyDe.Shallow.Example.Synchronous.Equalizer.Test,
+                       ForSyDe.Shallow.Example.SDF.ImageProcessing,
+                       ForSyDe.Shallow.Example.SDF.ImageProcessing.ImageProcessing,
+                       ForSyDe.Shallow.Example.SDF.ImageProcessing.Utilities,
+                       ForSyDe.Shallow.Example.SDF.ImageProcessing.Test,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian,
@@ -42,6 +58,9 @@ library
 
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.6 && <6, ForSyDe-Shallow >=3.3 && <4, random >=1.1 && <2
+  build-depends:       base >=4.6 && <6
+                     , forsyde-shallow >=3.3.2 && <4
+                     , random >=1.1 && <2
+                     , filepath >= 1.4
   hs-source-dirs:      src
   default-language:    Haskell2010

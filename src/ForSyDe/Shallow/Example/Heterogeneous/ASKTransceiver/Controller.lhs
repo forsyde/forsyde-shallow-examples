@@ -17,7 +17,7 @@ module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Controller
 -- import CTLib
 
 import ForSyDe.Shallow
-import ForSyDe.Shallow.CTLib
+import ForSyDe.Shallow.MoC.CT
 
 import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities
 import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters

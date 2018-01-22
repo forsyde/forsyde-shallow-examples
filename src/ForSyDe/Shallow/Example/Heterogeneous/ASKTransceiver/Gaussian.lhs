@@ -11,10 +11,10 @@ module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian where
 -- import Signal
 
 import ForSyDe.Shallow
-import ForSyDe.Shallow.SynchronousLib
-import ForSyDe.Shallow.UntimedLib
-import ForSyDe.Shallow.BitVector
-import ForSyDe.Shallow.Signal
+import ForSyDe.Shallow.MoC.Synchronous
+import ForSyDe.Shallow.MoC.Untimed
+import ForSyDe.Shallow.Core.BitVector
+import ForSyDe.Shallow.Core.Signal
 
 import System.Random
 import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities

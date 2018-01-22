@@ -9,7 +9,7 @@
 -- Portability :  portable
 --
 -- This is a shallow implementation of an Asynchronous Shift Key
--- Transceiver. The <files/DocumentationTransceiver.pdf DOCUMENTATION>
+-- Transceiver. The <files/docs/DocumentationTransceiver.pdf DOCUMENTATION>
 -- was written in Literate Haskell style and generate with pdflatex.
 --
 -----------------------------------------------------------------------------

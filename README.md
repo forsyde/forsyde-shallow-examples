@@ -12,17 +12,14 @@ The example applications are provided as extensions to the [`ForSyDe.Shallow`](h
 
 To install the applications globaly, you need to have installed `ForSyDe-Shallow` globally. Then, using the Cabal package manager, you can type in:
 
-    cabal configure  # configures the package for installation
+    cabal update     # updates the cabal repositories information
     cabal install    # installs 'forsyde-shallow-examples' and all its dependencies globally
     ghci             # opens a GHC interpreter session from which you can import the applications
     
 To install the applications locally in a sandbox, you still need to acquire the `ForSyDe-Shallow` source project, but it does not need to be installed. You can use the following commands:
     
+    cabal update       # updates the latest repositories information
     cabal sandbox init # creates a sandbox in the current folder
-    
-    # you need to manually add the ForSyDe-Shallow dependency to the sandbox
-    cabal sandbox add-source <path/to/forsyde-shallow>
-    
     cabal install      # installs 'forsyde-shallow-examples' and all its dependencies locally, in the sandbox
     cabal repl         # opens a GHC interpreter session for the sandbox from which you can import the applications
 
@@ -52,21 +49,22 @@ List of demos
 
 #### 1. Synchronous MoC
 
-  1. `TrafficLight`: Models a FSM for a traffic light controller.
-  1. `PitchControl`: Models a Proportional Integral Derivative (PID) control case study for the pitch of a Boeing's commercial aircraf.
-  1. `FibonacciRabbits`: Models to Fibonacci rabbits reproduction system.
-  1. `FibonacciRabbitsDeath`: Models the Fibonacci reproduction system considering rabbits death rate.
-  1. `RCFilter`: Models a first order low pass RC filter.
-  1. `MulAcc` : Models a multiply-accumulator. Adaptation from a [ForSyDe-SystemC](https://github.com/forsyde/ForSyDe-SystemC) version, bridging between the two languages.
-  
+  1. [`TrafficLight`](src/ForSyDe/Shallow/Example/Synchronous/TrafficLight.hs): Models a FSM for a traffic light controller.
+  1. [`PitchControl`](src/ForSyDe/Shallow/Example/Synchronous/PitchControl.hs): Models a Proportional Integral Derivative (PID) control case study for the pitch of a Boeing's commercial aircraf.
+  1. [`FibonacciRabbits`](src/ForSyDe/Shallow/Example/Synchronous/FibonacciRabbits.hs): Models to Fibonacci rabbits reproduction system.
+  1. [`FibonacciRabbitsDeath`](src/ForSyDe/Shallow/Example/Synchronous/FibonacciRabbitsDeath.hs): Models the Fibonacci reproduction system considering rabbits death rate.
+  1. [`RCFilter`](src/ForSyDe/Shallow/Example/Synchronous/RCFilter.hs): Models a first order low pass RC filter.
+  1. [`MulAcc`](src/ForSyDe/Shallow/Example/Synchronous/MulAcc.hs) : Models a multiply-accumulator. Adaptation from a [ForSyDe-SystemC](https://github.com/forsyde/ForSyDe-SystemC) version, bridging between the two languages.
+  1. [`Equalizer`](src/ForSyDe/Shallow/Example/Synchronous/Equalizer.hs): Models an equalizer system used in [Sander's PhD thesis](http://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Akth%3Adiva-3525). 
+
 #### 2. Untimed MoC
 
-  1. `AdaptiveAmp`: Models an adaptive amplifier.
-  1. `Ascii2Bin`: Models two processes to convert between ASCII characters and their binary representations.
+  1. [`AdaptiveAmp`](src/ForSyDe/Shallow/Example/Untimed/AdaptiveAmp.hs): Models an adaptive amplifier.
+  1. [`Ascii2Bin`](src/ForSyDe/Shallow/Example/Untimed/Ascii2Bin.hs): Models two processes to convert between ASCII characters and their binary representations.
 
 #### 3. Synchronous DataFlow MoC
   
-  No demos available at the moment.
+  1. [`ImageProcessing`](src/ForSyDe/Shallow/Example/SDF/ImageProcessing.hs): Models a toy image processing example used as system specification for the [KTH IL2212 Embedded Software](https://www.kth.se/student/kurser/kurs/IL2212?l=en) lab project. It introduces the concept of parallel patterns as skeletons on vectors.
 
 #### 4. Continuous Time MoC
 
@@ -77,4 +75,4 @@ List of demos
   
   These are demos that show how to use more than one MoC to model a system.
 
-  1. `ASKTransceiver`: Models an Asynchronous Shift Key Trasciever, using the SY, SDF and CT models of computation.
+  1.  [`ASKTransceiver`](src/ForSyDe/Shallow/Example/Heterogeneous/ASKTransceiver.hs): Models an Asynchronous Shift Key Trasciever, using the SY, SDF and CT models of computation.

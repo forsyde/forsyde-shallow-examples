@@ -8,8 +8,8 @@ module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities where
 -- import BitVector
 
 import ForSyDe.Shallow
-import ForSyDe.Shallow.CTLib
-import ForSyDe.Shallow.BitVector
+import ForSyDe.Shallow.MoC.CT
+import ForSyDe.Shallow.Core.BitVector
 
 import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters
 \end{code}
