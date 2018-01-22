@@ -18,10 +18,6 @@ To install the applications globaly, you can use the following commands, provide
 To install the applications locally in a sandbox, you can use the following commands:
     
     cabal sandbox init # creates a sandbox in the current folder
-    
-    # in case 'ForSyDe.Shallow' is not globally installed, you need to download/clone its source repo, and type
-    cabal sandbox add-source <path/to/forsyde-shallow>
-    
     cabal install      # installs 'forsyde-shallow-examples' and all its dependencies locally, in the sandbox
     cabal repl         # opens a GHC interpreter session for the sandbox from which you can import the applications
 

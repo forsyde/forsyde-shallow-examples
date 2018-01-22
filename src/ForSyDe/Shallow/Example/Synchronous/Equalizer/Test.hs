@@ -1,13 +1,35 @@
 module ForSyDe.Shallow.Example.Synchronous.Equalizer.Test (
-  -- * Button control
-  bassUp, bassDn, trebleUp, trebleDn, overrides,
+  -- * Test data
+  -- ** Test signals
+  zeros, ones, increm, modCos,
+  bassUp, bassDn, trebleUp, trebleDn,
+  overrides, distorsionFlags,
+  -- ** Test filter coefficients
+  lpCoeff, bpCoeff, hpCoeff,
+  lpCoeffD, bpCoeffD, hpCoeffD,
+  -- ** Test vectors
+  testV1, testV2, testV3,
+  -- * Test functions
+  -- ** Signal processing blocks
+  testDFT, testFFT, testDftAgainstFft, testFIR,
+  audioFilterI, audioFilterD,
+  -- ** Equalizer modules
+  testAudioFilterD,
   testButtonControl,
-  testFilter, testAnalyzer
+  testDistortionControl,
+  testAnalyzer,
+  testEqualizer,
+  -- * Test scripts 
+  testFilterScript,
+  testAnalyzerScript,
+  testFilterAndAnalyzerScript 
   )where
 
 import Data.Complex
-import Filesystem.Path
+import System.IO
+import System.FilePath
 import ForSyDe.Shallow
+import ForSyDe.Shallow.Utility.FIR
 import ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioAnalyzer
 import ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter
 import ForSyDe.Shallow.Example.Synchronous.Equalizer.ButtonControl
@@ -53,6 +75,29 @@ overrides = signal [
   Prst Lock, Abst, Abst, Abst,
   Abst, Prst CutBass, Abst, Abst,
   Prst Release,  Abst, Abst, Abst ]
+
+-- | example signal for testing
+-- 'ForSyDe.Shallow.Example.Synchronous.Equalizer.DistorsionControl.distortionControl'
+distorsionFlags = signal [
+  Abst, Abst, Abst, Prst Fail,
+  Abst, Abst, Abst, Prst Fail,
+  Abst, Abst, Abst, Prst Fail,
+  Abst, Abst, Abst, Prst Fail,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Fail,
+  Abst, Abst, Abst, Prst Fail,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Fail,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Fail,
+  Abst, Abst, Abst, Prst Pass,
+  Abst, Abst, Abst, Prst Pass ]        
 
 -- | Low-pass filter coefficients
 lpCoeff = vector [
@@ -134,7 +179,7 @@ hpCoeffD = vector [
 zeros = infiniteS id 0.0
 
 -- | Finite signal of ones, having its length given as input
-ones pts = takeS $ infiniteS id 1.0
+ones pts = takeS pts $ infiniteS id 1.0
 
 -- | Incremental signal of 400 samples
 increm = takeS 400 (infiniteS (+1/200) 0.0)
@@ -157,29 +202,6 @@ testV2 = mapV toComplex (vector [1, 2,3,4])
 -- | example input vector to test the ForSyDe implementation of FFT and DFT
 testV3 = mapV toComplex (vector [1, 2, 3, 4, 5, 6, 7, 8])
 
--- | example signal for testing
--- 'ForSyDe.Shallow.Example.Synchronous.Equalizer.DistorsionControl.distortionControl'
-distorsionFlags = signal [
-  Abst, Abst, Abst, Prst Fail,
-  Abst, Abst, Abst, Prst Fail,
-  Abst, Abst, Abst, Prst Fail,
-  Abst, Abst, Abst, Prst Fail,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Fail,
-  Abst, Abst, Abst, Prst Fail,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Fail,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Fail,
-  Abst, Abst, Abst, Prst Pass,
-  Abst, Abst, Abst, Prst Pass ]        
-
 --------------------
 -- TEST FUNCTIONS -- 
 --------------------
@@ -193,10 +215,10 @@ testButtonControl = buttonControl overrides bassUp bassDn trebleUp trebleDn
 toComplex a = a:+0
 
 -- | tests ForSyDe's 'ForSyDe.Shallow.dft' against 'testV3'
-testDFT = dft 8
+testDFT = dft 8 testV3
 
 -- | tests ForSyDe's 'ForSyDe.Shallow.fft' against 'testV3'
-testFFT = fft 8 v
+testFFT = fft 8 testV3
 
 -- | tests both 'ForSyDe.Shallow.dft' and 'ForSyDe.Shallow.fft'
 testDftAgainstFft = zipWithV (-) testDFT testFFT
@@ -208,14 +230,6 @@ testFIR = firSY coeff s
   where
     coeff = vector [0.1, -0.2, 0.5, 0.2]
     s = signal [1.0, 0, 0, 0, 0]
-
--- | Tests the
--- 'ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter.audioFilter'
--- function, with a square signal input.
-testFilter = audioFilter zeros input
-  where
-    input = 0.1 :- 0.2 :- input
-    zeros = (0.0, 0.0) :- zeros
 
 pts = 4
 
@@ -234,16 +248,16 @@ testAnalyzer = audioAnalyzer 2 (audioFilter lpCoeff bpCoeff hpCoeff bass treble 
 
 -- | Instantiates
 -- 'ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter.audioFilter'.
-testAudioFilter = audioFilter lpCoeff bpCoeff hpCoeff zeros zeros
+audioFilterI = audioFilter lpCoeff bpCoeff hpCoeff zeros zeros
 
 -- | Instantiates
 -- 'ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter.audioFilter'.
-testAudioFilterD = audioFilter lpCoeffD bpCoeffD hpCoeffD zeros zeros
+audioFilterD = audioFilter lpCoeffD bpCoeffD hpCoeffD zeros zeros
 
 -- | Tests
 -- 'ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter.audioFilter'
 -- against a test signal.
-testAudioFilterDSig = audioFilter lpCoeffD bpCoeffD hpCoeffD zeros zeros s
+testAudioFilterD = audioFilter lpCoeffD bpCoeffD hpCoeffD zeros zeros s
   where s = signal [0.1,0.05,0.3,0.2,-0.5,0.2,0.1,0.3,0.1,-0.1,0.0,0.2]
                   
 -- | Tests the
@@ -278,20 +292,22 @@ testEqualizer = equalizer lpCoeff bpCoeff hpCoeff 2 bassUp bassDn trebleUp trebl
 -- SCRIPTS --
 -------------
 
--- | Tests the 'testAudioFilterD' function, against the contents of a
+-- | Tests the 'audioFilterD' function, against the contents of a
 -- @.dat@ file. Dumps in another @.dat@ file. An example input file is
--- provided in the @/files@ folder in the root path of the project.
+-- provided in the @files/test-equalizer@ folder in the root path of
+-- the project.
 testFilterScript inFile = do
   contents <- readFile inFile
   writeFile audioOut (writeS (audioFilterD (readS contents)))
+  putStrLn $ "\nDone. Data dumped in " ++ audioOut
   where
-    audioOut = directory inFile ++ "/AudioOutFSD.ext"
+    audioOut = takeDirectory inFile ++ "/AudioOutFSD.ext"
 
 -- | Tests the
 -- 'ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter.audioAnalyzer'
 -- function, against the contents of a @.dat@ file. Dumps in another
--- @.dat@ file. An example input file is provided in the @/files@
--- folder in the root path of the project.
+-- @.dat@ file. An example input file is provided in the
+-- @files/test-equalizer@ folder in the root path of the project.
 testAnalyzerScript inFile = do
   fftInfile  <- openFile inFile ReadMode
   fftOutfile <- openFile outFile WriteMode
@@ -300,26 +316,28 @@ testAnalyzerScript inFile = do
   putStr (show (audioAnalyzer pts ((readS contents) :: Signal Double)))
   hPutStr fftOutfile (writeS (audioAnalyzer pts ((readS contents) :: Signal Double)))
 --    hClose fftOutfile
-  putStr "\nDone. Data dumped in " ++ outFile ++ "\n"
+  putStr $ "\nDone. Data dumped in " ++ outFile ++ "\n"
   where
     k = 8
     n = 2 ^ k 
     sig = takeS (2*(2^k)) input
-    outFile = directory inFile ++ "/fftOut.dat"
+    input = 0.1 :- 0.2 :- input
+    outFile = takeDirectory inFile ++ "/fftOut.dat"
 
 -- | Chains and tests the
 -- 'ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter.audioFilter' and
 -- 'ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter.audioAnalyzer'
 -- functions, against the contents of a @.dat@ file. Dumps in another
--- @.dat@ file. An example input file is provided in the @/files@
--- folder in the root path of the project.
+-- @.dat@ file. An example input file is provided in the
+-- @files/test-equalizer@ folder in the root path of the project.
 testFilterAndAnalyzerScript inFile = do 
   -- Test AudioFilter
   putStr "\n-->Test AudioFilter \n"
   filterInfile     <- openFile inFile ReadMode
   filterContents   <- hGetContents filterInfile 
   putStr (show (audioFilterD (readS filterContents)))
-  writeFile audioOut (writeS (audioFilterD (readS filterContents)))        
+  writeFile audioOut (writeS (audioFilterD (readS filterContents)))
+  putStrLn $ "\nDone. Data dumped in " ++ audioOut  
 -- Test AudioAnalyzer
   putStr "\n--> Test AudioAnalyzer \n"
   analyzerInfile   <- openFile audioOut ReadMode
@@ -327,13 +345,13 @@ testFilterAndAnalyzerScript inFile = do
   analyzerContents <- hGetContents analyzerInfile
   putStr (show (audioAnalyzer pts ((readS analyzerContents) :: Signal Double)))
   hPutStr analyzerOutfile (writeS (audioAnalyzer pts ((readS analyzerContents) :: Signal Double)))         
+  putStrLn $ "\nDone. Data dumped in " ++ analyzerOut
   --fftInfile <- openFile "audioOut.txt" ReadMode
   --fftOutfile <- openFile "fftOut.txt" WriteMode
   --contents <- hGetContents fftInfile
   --putStr (writeS (((readS contents) :: Signal Double)))
   --hPutStr fftOutfile (writeS (((readS contents) :: Signal Double)))
-  putStr "\nDone.\n"
   where
-    audioOut    = directory inFile ++ "/audioOut.dat"
-    analyzerOut = directory inFile ++ "/analyzerOut.dat"
+    audioOut    = takeDirectory inFile ++ "/audioOut.dat"
+    analyzerOut = takeDirectory inFile ++ "/analyzerOut.dat"
 
