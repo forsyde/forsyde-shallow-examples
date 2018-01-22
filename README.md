@@ -64,7 +64,7 @@ List of demos
 
 #### 3. Synchronous DataFlow MoC
   
-  No demos available at the moment.
+  1. `ImageProcessing`: Models a toy image processing example used as system specification for the [KTH IL2212 Embedded Software](https://www.kth.se/student/kurser/kurs/IL2212?l=en) lab project. It introduces the concept of parallel patterns as skeletons on vectors.
 
 #### 4. Continuous Time MoC
 

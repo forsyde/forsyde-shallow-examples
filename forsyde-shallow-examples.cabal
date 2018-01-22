@@ -17,7 +17,9 @@ copyright:           Ingo Sander and authors
 build-type:          Simple
 extra-source-files:  README.md
                    , files/test-equalizer/*.mat
+                   , files/test-imageproc/*.ppm
 extra-doc-files:     files/docs/*.pdf
+                   , files/images/*.png
 cabal-version:       >=1.10
 
 library
@@ -40,6 +42,10 @@ library
                        ForSyDe.Shallow.Example.Synchronous.Equalizer.DistortionControl,
                        ForSyDe.Shallow.Example.Synchronous.Equalizer.EqualizerTypes,
                        ForSyDe.Shallow.Example.Synchronous.Equalizer.Test,
+                       ForSyDe.Shallow.Example.SDF.ImageProcessing,
+                       ForSyDe.Shallow.Example.SDF.ImageProcessing.ImageProcessing,
+                       ForSyDe.Shallow.Example.SDF.ImageProcessing.Utilities,
+                       ForSyDe.Shallow.Example.SDF.ImageProcessing.Test,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian,
