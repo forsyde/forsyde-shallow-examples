@@ -1,3 +1,9 @@
+\ignore{
+\begin{code}
+{-# OPTIONS_HADDOCK hide #-}
+\end{code}
+}
+
 \subsection{Overview}
 
 The \process{Audio Analyzer} analyzes the current bass level and raises a flag when the bass level exceeds a limit. 

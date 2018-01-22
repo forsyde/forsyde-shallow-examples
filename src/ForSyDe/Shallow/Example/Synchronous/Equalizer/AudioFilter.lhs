@@ -1,3 +1,9 @@
+\ignore{
+\begin{code}
+{-# OPTIONS_HADDOCK hide #-}
+\end{code}
+}
+
 \subsection{Overview}
 Figure \ref{fig:AudioFilter} shows the structure of the \process{AudioFilter}. The task of this subsystem is to amplify different frequencies of the audio signal independently according to the assigned levels. The audio signal is splitted into three identical signals, one for each frequency region. The signals are filtered and then amplified according to the assigned amplification level. As the equalizer in this design only has a bass and treble control, the middle frequencies are not amplified. The output signal from the \process{Audio Filter} is the addition of the three filtered and amplified signals.
 

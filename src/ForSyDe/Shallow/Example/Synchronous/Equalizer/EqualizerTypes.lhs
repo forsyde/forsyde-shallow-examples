@@ -1,3 +1,8 @@
+\ignore{
+\begin{code}
+{-# OPTIONS_HADDOCK hide #-}
+\end{code}
+}
 \subsection{Overview}
 
 This module is a collection of data types that are used in the equalizer model.

@@ -1,10 +1,21 @@
+\ignore{
+\begin{code}
+{-# OPTIONS_HADDOCK hide #-}
+\end{code}
+}
+
 \subsection{Overview}
 
-The main task of the equalizer system is to adjust the audio signal according to the \process{Button Control}, that works as a user interface. In addition, the bass level must not
-exceed a predefined threshold to avoid damage to the speakers.
+The main task of the equalizer system is to adjust the audio signal
+according to the \process{Button Control}, that works as a user
+interface. In addition, the bass level must not exceed a predefined
+threshold to avoid damage to the speakers.
 
-This specification can be naturally decomposed into four functions shown in
-Figure \ref{fig:Equalizer-Level1}. The subsystems \process{Button Control} and \process{Distortion Control}, are control dominated (grey shaded), while the \process{Audio Filter} and the \process{Audio Analyzer} are data flow dominated subsystems.  
+This specification can be naturally decomposed into four functions
+shown in Figure \ref{fig:Equalizer-Level1}. The subsystems
+\process{Button Control} and \process{Distortion Control}, are control
+dominated (grey shaded), while the \process{Audio Filter} and the
+\process{Audio Analyzer} are data flow dominated subsystems.
 
 \begin{figure}[h]
  \centering
@@ -13,17 +24,22 @@ Figure \ref{fig:Equalizer-Level1}. The subsystems \process{Button Control} and \
  \label{fig:Equalizer-Level1}
 \end{figure}
 
-The \process{Button Control} subsystem monitors the button inputs and the override
-signal from the subsystem \process{Distortion Control} and adjusts the current
-bass and treble levels. This information is passed to the subsystem
-\process{Audio Filter}, which receives the audio input, and filters and
-amplifies the audio signal according to the current bass and treble
-levels. This signal, the output signal of the equalizer, is analyzed by the 
-\process{Audio Analyzer} subsystem, which determines, whether the bass exceeds a
-predefined threshold. The result of this analysis is passed to the subsystem \process{Distortion Control}, which decides, if a minor or major violation is encountered and issues the
-necessary commands to the \process{Button Control} subsystem.  
+The \process{Button Control} subsystem monitors the button inputs and
+the override signal from the subsystem \process{Distortion Control}
+and adjusts the current bass and treble levels. This information is
+passed to the subsystem \process{Audio Filter}, which receives the
+audio input, and filters and amplifies the audio signal according to
+the current bass and treble levels. This signal, the output signal of
+the equalizer, is analyzed by the \process{Audio Analyzer} subsystem,
+which determines, whether the bass exceeds a predefined threshold. The
+result of this analysis is passed to the subsystem \process{Distortion
+  Control}, which decides, if a minor or major violation is
+encountered and issues the necessary commands to the \process{Button
+  Control} subsystem.
 
-The frequency characteristics of the \process{Equalizer} is adjusted by the coefficients for the three FIR-filters in the \process{AudioFilter}. 
+The frequency characteristics of the \process{Equalizer} is adjusted
+by the coefficients for the three FIR-filters in the
+\process{AudioFilter}.
 
 \begin{code}
 module ForSyDe.Shallow.Example.Synchronous.Equalizer.Equalizer (
@@ -53,5 +69,7 @@ equalizer lpCoeff bpCoeff hpCoeff dftPts
     delayedDistFlag = delaySY Abst distFlag
 \end{code}
 
-Since the equalizer contains a feedback loop, the signal \process{DistFlag} is delayed one event cycle using the initial value $\Abst$.
+Since the equalizer contains a feedback loop, the signal
+\process{DistFlag} is delayed one event cycle using the initial value
+$\Abst$.
 

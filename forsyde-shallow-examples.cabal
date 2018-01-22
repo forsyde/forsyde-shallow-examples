@@ -38,6 +38,7 @@ library
                        ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioFilter,
                        ForSyDe.Shallow.Example.Synchronous.Equalizer.DistortionControl,
                        ForSyDe.Shallow.Example.Synchronous.Equalizer.EqualizerTypes,
+                       ForSyDe.Shallow.Example.Synchronous.Equalizer.Test,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian,
@@ -50,6 +51,9 @@ library
 
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.6 && <6, forsyde-shallow >=3.3.2 && <4, random >=1.1 && <2
+  build-depends:       base >=4.6 && <6
+                     , forsyde-shallow >=3.3.2 && <4
+                     , random >=1.1 && <2
+                     , system-filepath >= 0.4
   hs-source-dirs:      src
   default-language:    Haskell2010

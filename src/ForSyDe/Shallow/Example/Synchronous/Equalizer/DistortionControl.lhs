@@ -1,3 +1,9 @@
+\ignore{
+\begin{code}
+{-# OPTIONS_HADDOCK hide #-}
+\end{code}
+}
+
 The block \process{Distortion Control} is directly developed from the SDL-specification, that has been used for the MASCOT-model \cite{BjJa2000}. The specification is shown in Figure \ref{fig:SDL-Distortion Control}.
 
 \begin{figure}[h]
