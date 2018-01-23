@@ -25,7 +25,7 @@ To install the applications locally in a sandbox, you still need to acquire the 
 
 Each application is documented in-line using Haddock style comments. You are strongly advised to compile and consult the documentation before running the applications. You need to install [Haddock](https://www.haskell.org/haddock/) prior to compiling the documentation. 
 
-    cabal install haddock             # installs the latest version of Haddock from HackageDB
+    cabal install haddock hscolour    # installs tools for generating documentation
     cabal configure                   # prepares the sources for documentation
     cabal haddock --hyperlink-source  # generates a HTML documentation
     
