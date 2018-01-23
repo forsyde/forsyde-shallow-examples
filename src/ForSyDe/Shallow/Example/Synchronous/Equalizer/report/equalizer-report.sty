@@ -2,6 +2,9 @@
 \usepackage{listings}
 \usepackage{framed}
 \usepackage{color}
+\usepackage{mfirstuc}
+
+
 \newcommand*{\ttfamilywithbold}{\fontfamily{lmtt}\selectfont}
 \lstloadlanguages{Haskell}
 
@@ -29,9 +32,14 @@
 
 \long\def\ignore#1{}
 
-\newcommand{\process}[1]{{\small\texttt{#1}}}
-\newcommand{\signal}[1]{$\overline{\mathtt{#1}}$}
-\newcommand{\constant}[1]{{\small\texttt{#1}}}
+\makeatletter
+\def\RemoveSpaces#1{\zap@space#1 \@empty}
+\makeatother
+\renewcommand{\mfirstucMakeUppercase}{\MakeLowercase}
+
+\newcommand{\process}[1]{{\small\ttfamilywithbold\bfseries\makefirstuc{\RemoveSpaces{#1}}}}
+\newcommand{\signal}[1]{$\overrightarrow{\mathtt{#1}}$}
+\newcommand{\constant}[1]{{\small\fontfamily{cmss}\selectfont #1}}
 \newcommand{\variable}[1]{{\small\emph{#1}}}
-\newcommand{\function}[1]{{\small\texttt{#1}}}
+\newcommand{\function}[1]{{\texttt{#1}}}
 \newcommand{\Abst}{\bot}

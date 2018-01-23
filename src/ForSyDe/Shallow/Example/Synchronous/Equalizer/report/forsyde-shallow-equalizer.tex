@@ -1,6 +1,7 @@
 \documentclass{article}
-\title{Shallow ForSyDe Model of an Equalizer System}
+\title{ForSyDe Model of an Equalizer System}
 \author{Ingo Sander}
+\date{}
 \usepackage{tikz}
 \usepackage{biblatex}
 \usepackage{equalizer-report}
@@ -11,34 +12,34 @@
 
 \maketitle
 
-This report presents the equalizer example, used in Sander's PhD Thesis \cite{San03}, and modelled using shallow-embedded signals. 
+This report is an extract from Sander's PhD Thesis \cite{San03} presenting an equalizer example, modelled using shallow-embedded signals. 
 
 \begin{framed}
-  \textbf{NOTE:} in the code listings, the path of the \texttt{Equalizer} module within the \texttt{forsyde-shallow-examples} project has been replace with \texttt{...}
+  \textbf{NOTE:} in the code listings, the path of the \texttt{Equalizer} module within the \texttt{forsyde-shallow-examples} project has been replaced with \texttt{...}
 \end{framed}
 
 
-\section{Equalizer top moule}
+\section{Equalizer System}
 \label{sec:equalizer-top-moule}
 \input{../Equalizer.lhs}
 
-\section{Internal types}
+\section{Internal Types}
 \label{sec:internal-types}
 \input{../EqualizerTypes.lhs}
 
-\section{Button control module}
+\section{Button Control Subsystem}
 \label{sec:butt-contr-module}
 \input{../ButtonControl.lhs}
 
-\section{Audio filter module}
+\section{Audio Filter Subsystem}
 \label{sec:audio-filter-module}
 \input{../AudioFilter.lhs}
 
-\section{Audio analyzer module}
+\section{Audio Analyzer Subsystem}
 \label{sec:audio-analyz-module}
 \input{../AudioAnalyzer.lhs}
 
-\section{Distorsion control module}
+\section{Distorsion Control Subsystem}
 \label{sec:dist-contr-module}
 \input{../DistortionControl.lhs}
 

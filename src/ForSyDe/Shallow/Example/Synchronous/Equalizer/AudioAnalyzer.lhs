@@ -15,9 +15,9 @@ The \process{Audio Analyzer} analyzes the current bass level and raises a flag w
 \label{fig:AudioAnalyzerSubsystem}
 \end{figure}
 
-As illutsrated in Figure \ref{fig:AudioAnalyzerSubsystem} the \process{Audio Analyzer} is divided into four blocks. The input signal is first grouped into samples of size $N$ in the process \process{Group Samples} and then processed with a \process{DFT} in order to get the frequency spectrum of the signal. Then the power spectrum is calculated in \process{Spectrum}. In \process{CheckBass} the lowest frequencies are compared with a threshold value. If they exceed this value, the output \process{Distortion Flag} will have the value \constant{Fail}.
+As illutsrated in Figure \ref{fig:AudioAnalyzerSubsystem} the \process{Audio Analyzer} is divided into four blocks. The input signal is first grouped into samples of size $N$ in the process \process{Group Samples} and then processed with a \process{dft} in order to get the frequency spectrum of the signal. Then the power spectrum is calculated in \process{Spectrum}. In \process{CheckBass} the lowest frequencies are compared with a threshold value. If they exceed this value, the output \process{Distortion Flag} will have the value \constant{Fail}.
 
-Since \process{Group Samples} needs $N$ cycles for the grouping, it produces $N-1$ absent values $\perp$ for each grouped sample. Thus the following processes \process{DFT}, \process{Spectrum} and \process{Check Bass} are all $\Psi$-extended in order to be able to process the absent value $\Abst$.
+Since \process{Group Samples} needs $N$ cycles for the grouping, it produces $N-1$ absent values $\perp$ for each grouped sample. Thus the following processes \process{dft}, \process{Spectrum} and \process{Check Bass} are all $\Psi$-extended in order to be able to process the absent value $\Abst$.
 \begin{code}
 module ForSyDe.Shallow.Example.Synchronous.Equalizer.AudioAnalyzer (
   audioAnalyzer
