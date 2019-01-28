@@ -20,7 +20,7 @@ module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.EncDec
 -- import BitVector
 
 import ForSyDe.Shallow
-import ForSyDe.Shallow.Core.BitVector
+import ForSyDe.Shallow.Utility.BitVector
 import ForSyDe.Shallow.MoC.CT
 import ForSyDe.Shallow.MoC.Adaptivity
 

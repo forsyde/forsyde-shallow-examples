@@ -160,7 +160,7 @@ mooreSDF :: ((Int,Int), Int, [st]->[a]->[st]) -- ^ /*/
          -> Signal b  -- ^ output signal
 mooreSDF ((consNs1,consNs2),prodNs,nsFunc) (consOd,prodOd,odFunc) init inSig = odSDF stateSig
   where
-    stateSig = delaynSDF init $ nsSDF stateSig inSig
+    stateSig = delaySDF init $ nsSDF stateSig inSig
     nsSDF = actor21SDF (consNs1,consNs2) prodNs nsFunc
     odSDF = actor11SDF consOd prodOd odFunc
 

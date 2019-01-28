@@ -20,7 +20,7 @@ module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Transceiver
 
 import ForSyDe.Shallow
 import ForSyDe.Shallow.MoC.CT
-import ForSyDe.Shallow.Core.BitVector
+import ForSyDe.Shallow.Utility.BitVector
 import ForSyDe.Shallow.Utility.FilterLib
 
 import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Parameters

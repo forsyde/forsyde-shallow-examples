@@ -13,7 +13,7 @@ module ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian where
 import ForSyDe.Shallow
 import ForSyDe.Shallow.MoC.Synchronous
 import ForSyDe.Shallow.MoC.Untimed
-import ForSyDe.Shallow.Core.BitVector
+import ForSyDe.Shallow.Utility.BitVector
 import ForSyDe.Shallow.Core.Signal
 
 import System.Random
