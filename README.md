@@ -66,6 +66,11 @@ List of demos
   
   1. [`ImageProcessing`](src/ForSyDe/Shallow/Example/SDF/ImageProcessing.hs): Models a toy image processing example used as system specification for the [KTH IL2212 Embedded Software](https://www.kth.se/student/kurser/kurs/IL2212?l=en) lab project. It introduces the concept of parallel patterns as skeletons on vectors.
 
+#### 3. Senario Aware DataFlow MoC
+  
+  1. [`RISC`](src/ForSyDe/Shallow/Example/SADF/RISC.hs): Models a RISC processor featuring an extensible instruction set, using the concept of scenarios. This model has been used in the paper of [Bonna et al. (2019)]().
+  1. [`MPEG4`](src/ForSyDe/Shallow/Example/SADF/MPEG4.hs): Models a prototype MPEG4 Simple Profile Decoder. This model has been used in the paper of [Bonna et al. (2019)]().
+  
 #### 4. Continuous Time MoC
 
   No demos available at the moment.

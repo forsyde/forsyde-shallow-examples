@@ -2,7 +2,7 @@
 -- For further documentation, see http://haskell.org/cabal/users-guide/
 
 name:                forsyde-shallow-examples
-version:             1.0.1.1
+version:             1.1.0.0
 -- synopsis:            
 description:
   Collection of demo applications for the ForSyDe.Shallow library     
@@ -46,6 +46,12 @@ library
                        ForSyDe.Shallow.Example.SDF.ImageProcessing.ImageProcessing,
                        ForSyDe.Shallow.Example.SDF.ImageProcessing.Utilities,
                        ForSyDe.Shallow.Example.SDF.ImageProcessing.Test,
+                       ForSyDe.Shallow.Example.SADF.RISC,
+                       ForSyDe.Shallow.Example.SADF.RISC.RISC,
+                       ForSyDe.Shallow.Example.SADF.RISC.Test,
+                       ForSyDe.Shallow.Example.SADF.MPEG4,
+                       ForSyDe.Shallow.Example.SADF.MPEG4.MPEG4,
+                       ForSyDe.Shallow.Example.SADF.MPEG4.Test,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Main,
                        ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Gaussian,
@@ -60,6 +66,7 @@ library
   -- other-extensions:    
   build-depends:       base >=4.6 && <6
                      , forsyde-shallow == 3.4.0.0
+                     , matrix >= 0.3.6
                      , random >=1.1 && <2
                      , filepath >= 1.4
   hs-source-dirs:      src

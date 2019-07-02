@@ -1,0 +1,839 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  28 JAN 2019 22:35
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**DocumentationTransceiver.tex
+(./DocumentationTransceiver.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\lst@mode=\count88
+\lst@gtempboxa=\box26
+\lst@token=\toks15
+\lst@length=\count89
+\lst@currlwidth=\dimen103
+\lst@column=\count90
+\lst@pos=\count91
+\lst@lostspace=\dimen104
+\lst@width=\dimen105
+\lst@newlines=\count92
+\lst@lineno=\count93
+\lst@maxwidth=\dimen106
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count94
+\lst@skipnumbers=\count95
+\lst@framebox=\box27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 95.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count96
+))
+\Gin@req@height=\dimen107
+\Gin@req@width=\dimen108
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks16
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen109
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen110
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count97
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count98
+\leftroot@=\count99
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count100
+\DOTSCASE@=\count101
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen111
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+\macc@depth=\count102
+\c@MaxMatrixCols=\count103
+\dotsspace@=\muskip10
+\c@parentequation=\count104
+\dspbrk@lvl=\count105
+\tag@help=\toks18
+\row@=\count106
+\column@=\count107
+\maxfields@=\count108
+\andhelp@=\toks19
+\eqnshift@=\dimen112
+\alignsep@=\dimen113
+\tagshift@=\dimen114
+\tagwidth@=\dimen115
+\totwidth@=\dimen116
+\lineht@=\dimen117
+\@envbody=\toks20
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eepic/epic.sty
+Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
+\@@multicnt=\count109
+\d@lta=\count110
+\@delta=\dimen118
+\@@delta=\dimen119
+\@gridcnt=\count111
+\@joinkind=\count112
+\@dotgap=\dimen120
+\@ddotgap=\dimen121
+\@x@diff=\count113
+\@y@diff=\count114
+\x@diff=\dimen122
+\y@diff=\dimen123
+\@dotbox=\box30
+\num@segments=\count115
+\num@segmentsi=\count116
+\@datafile=\read1
+) (/usr/share/texlive/texmf-dist/tex/latex/eepic/eepic.sty
+Extension to Epic and LaTeX. Version 1.1e - Released Dec 21, 1999
+\@gphlinewidth=\count117
+\@eepictcnt=\count118
+\@tempdimc=\dimen124
+\maxovaldiam=\dimen125
+\@filltype=\box31
+) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks22
+\inpenc@posthook=\toks23
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+))
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2015/06/04 1.6 listings language file
+)
+(./DocumentationTransceiver.aux)
+\openout1 = `DocumentationTransceiver.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+\c@lstlisting=\count119
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count120
+\scratchdimen=\dimen126
+\scratchbox=\box32
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen127
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks25
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Try loading font information for U+msa on input line 58.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 58.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./DocumentationTransceive
+r.toc
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 4.
+)
+\tf@toc=\write3
+\openout3 = `DocumentationTransceiver.toc'.
+
+
+(./Introduction.tex [1
+
+]
+Chapter 1.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 8.
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
+Package epstopdf Info: Source file: <fig/TestBench.eps>
+(epstopdf)                    date: 2018-10-03 21:15:44
+(epstopdf)                    size: 19905 bytes
+(epstopdf)             Output file: <fig/TestBench-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-01-28 22:34:17
+(epstopdf)                    size: 10303 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/TestBench-eps-converte
+d-to.pdf fig/TestBench.eps>
+(epstopdf)             \includegraphics on input line 19.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./fig/TestBench-eps-converted-to.pdf): PDF inclu
+sion: found PDF version <1.7>, but at most version <1.5> allowed
+<fig/TestBench-eps-converted-to.pdf, id=15, 767.86874pt x 416.55624pt>
+File: fig/TestBench-eps-converted-to.pdf Graphic file (type pdf)
+
+<use fig/TestBench-eps-converted-to.pdf>
+Package pdftex.def Info: fig/TestBench-eps-converted-to.pdf used on input line 
+19.
+(pdftex.def)             Requested size: 767.86687pt x 416.55522pt.
+
+Overfull \hbox (27.33318pt too wide) in paragraph at lines 37--38
+[]\OT1/cmr/m/n/10 Extract the toy ex-am-ple so that it is lo-cated un-der the d
+i-rec-tory \OT1/cmtt/m/n/10 ForSyDeExample 
+ []
+
+[2
+
+]
+Overfull \hbox (7.83324pt too wide) in paragraph at lines 45--46
+[]\OT1/cmr/m/n/10 Then load the test-bench, which in-cludes all the mod-ules wi
+th \OT1/cmtt/m/n/10 :l TestBench\OT1/cmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (63.24669pt too wide) in paragraph at lines 71--71
+ []\OT1/cmtt/m/n/10 __   __ __  __  ____   ___      ___________________________
+______________[] 
+ []
+
+
+Overfull \hbox (63.24669pt too wide) in paragraph at lines 71--71
+ []\OT1/cmtt/m/n/10 ||   || ||  || ||  || ||__      Hugs 98: Based on the Haske
+ll 98 standard[] 
+ []
+
+
+Overfull \hbox (52.74678pt too wide) in paragraph at lines 71--71
+ []\OT1/cmtt/m/n/10 ||---||         ___||           World Wide Web: http://hask
+ell.org/hugs[] 
+ []
+
+
+Overfull \hbox (42.24687pt too wide) in paragraph at lines 71--71
+ []\OT1/cmtt/m/n/10 ||   ||                         Report bugs to: hugs-bugs@h
+askell.org[] 
+ []
+
+
+Overfull \hbox (63.24669pt too wide) in paragraph at lines 71--71
+ []\OT1/cmtt/m/n/10 ||   || Version: May 2006       ___________________________
+______________[] 
+ []
+
+
+Overfull \hbox (68.49664pt too wide) in paragraph at lines 71--71
+ []\OT1/cmtt/m/n/10 Haskell 98 mode: Restart with command line option -98 to en
+able extensions[] 
+ []
+
+[3 <./fig/TestBench-eps-converted-to.pdf>]
+
+LaTeX Warning: File `fig/ct-moc-graph-sig_ct_waveSent.eps' not found on input l
+ine 77.
+
+Package epstopdf Info: Source file: <fig/ct-moc-graph-sig_ct_waveSent.eps>
+(epstopdf)             Output file: <fig/ct-moc-graph-sig_ct_waveSent-eps-conve
+rted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=fig/ct-moc-graph-sig_ct_wa
+veSent-eps-converted-to.pdf fig/ct-moc-graph-sig_ct_waveSent.eps>
+(epstopdf)             \includegraphics on input line 77.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `fig/ct-moc-graph-sig_ct_waveSent-eps-converte
+d-to.pdf' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 ...ics{fig/ct-moc-graph-sig_ct_waveSent.eps}}
+                                                  
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.77 ...ics{fig/ct-moc-graph-sig_ct_waveSent.eps}}
+                                                  
+? Q
+OK, entering \batchmode...
+
+LaTeX Warning: File `fig/ct-moc-graph-sig_ct_waveReceived.eps' not found on inp
+ut line 84.
+
+Package epstopdf Info: Source file: <fig/ct-moc-graph-sig_ct_waveReceived.eps>
+(epstopdf)             Output file: <fig/ct-moc-graph-sig_ct_waveReceived-eps-c
+onverted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=fig/ct-moc-graph-sig_ct_wa
+veReceived-eps-converted-to.pdf fig/ct-moc-graph-sig_ct_waveReceived.eps>
+(epstopdf)             \includegraphics on input line 84.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `fig/ct-moc-graph-sig_ct_waveReceived-eps-conv
+erted-to.pdf' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84 ...fig/ct-moc-graph-sig_ct_waveReceived.eps}}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `fig/ct-moc-graph-sig_ct_lpout.eps' not found on input line
+ 91.
+
+Package epstopdf Info: Source file: <fig/ct-moc-graph-sig_ct_lpout.eps>
+(epstopdf)             Output file: <fig/ct-moc-graph-sig_ct_lpout-eps-converte
+d-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=fig/ct-moc-graph-sig_ct_lp
+out-eps-converted-to.pdf fig/ct-moc-graph-sig_ct_lpout.eps>
+(epstopdf)             \includegraphics on input line 91.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `fig/ct-moc-graph-sig_ct_lpout-eps-converted-t
+o.pdf' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91 ...aphics{fig/ct-moc-graph-sig_ct_lpout.eps}}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (./TransceiverSystem.lhs [4] [5] [6] [7]
+Chapter 2.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1.
+Package epstopdf Info: Source file: <fig/TransceiverSystem.eps>
+(epstopdf)                    date: 2018-10-03 21:15:44
+(epstopdf)                    size: 16570 bytes
+(epstopdf)             Output file: <fig/TransceiverSystem-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2019-01-28 22:34:18
+(epstopdf)                    size: 9069 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/TransceiverSystem-eps-
+converted-to.pdf fig/TransceiverSystem.eps>
+(epstopdf)             \includegraphics on input line 5.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./fig/TransceiverSystem-eps-converted-to.pdf): P
+DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+<fig/TransceiverSystem-eps-converted-to.pdf, id=45, 759.83875pt x 477.785pt>
+File: fig/TransceiverSystem-eps-converted-to.pdf Graphic file (type pdf)
+ <use fig/TransceiverSystem-eps-converted-to.pdf>
+Package pdftex.def Info: fig/TransceiverSystem-eps-converted-to.pdf used on inp
+ut line 5.
+(pdftex.def)             Requested size: 759.83688pt x 477.78383pt.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 14.
+
+Overfull \hbox (18.82077pt too wide) in paragraph at lines 14--15
+[][][][][][][][][][][][][][][] 
+ []
+
+ [8
+
+ <./fig/TransceiverSystem-eps-converted-to.pdf>]
+Overfull \hbox (32.9956pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 45--46
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (66.07022pt too wide) in paragraph at lines 53--54
+[][][][][][][][][][][][][] 
+ []
+
+) (./Transceiver.lhs [9]
+Chapter 3.
+Package epstopdf Info: Source file: <fig/Transceiver.eps>
+(epstopdf)                    date: 2018-10-03 21:15:44
+(epstopdf)                    size: 10463 bytes
+(epstopdf)             Output file: <fig/Transceiver-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-01-28 22:34:18
+(epstopdf)                    size: 7812 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/Transceiver-eps-conver
+ted-to.pdf fig/Transceiver.eps>
+(epstopdf)             \includegraphics on input line 5.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./fig/Transceiver-eps-converted-to.pdf): PDF inc
+lusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+<fig/Transceiver-eps-converted-to.pdf, id=60, 562.1pt x 421.575pt>
+File: fig/Transceiver-eps-converted-to.pdf Graphic file (type pdf)
+ <use fig/Transceiver-eps-converted-to.pdf>
+Package pdftex.def Info: fig/Transceiver-eps-converted-to.pdf used on input lin
+e 5.
+(pdftex.def)             Requested size: 562.09863pt x 421.57396pt.
+ [10
+
+ <./fig/Transceiver-eps-converted-to.pdf>]
+Overfull \hbox (4.64594pt too wide) in paragraph at lines 30--31
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (14.09583pt too wide) in paragraph at lines 44--45
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (18.82077pt too wide) in paragraph at lines 45--46
+[][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (28.27066pt too wide) in paragraph at lines 46--47
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (42.4455pt too wide) in paragraph at lines 47--48
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (23.54572pt too wide) in paragraph at lines 57--58
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (37.72055pt too wide) in paragraph at lines 61--62
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+ [11]
+Overfull \hbox (37.72055pt too wide) in paragraph at lines 74--75
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (4.64594pt too wide) in paragraph at lines 75--76
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (4.64594pt too wide) in paragraph at lines 102--103
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (4.64594pt too wide) in paragraph at lines 110--111
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+ [12]) (./Controller.lhs [13]
+Chapter 4.
+Package epstopdf Info: Source file: <fig/Controller.eps>
+(epstopdf)                    date: 2018-10-03 21:15:44
+(epstopdf)                    size: 5678 bytes
+(epstopdf)             Output file: <fig/Controller-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-01-28 22:34:18
+(epstopdf)                    size: 6295 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/Controller-eps-convert
+ed-to.pdf fig/Controller.eps>
+(epstopdf)             \includegraphics on input line 5.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./fig/Controller-eps-converted-to.pdf): PDF incl
+usion: found PDF version <1.7>, but at most version <1.5> allowed
+
+<fig/Controller-eps-converted-to.pdf, id=80, 242.9075pt x 73.27374pt>
+File: fig/Controller-eps-converted-to.pdf Graphic file (type pdf)
+ <use fig/Controller-eps-converted-to.pdf>
+Package pdftex.def Info: fig/Controller-eps-converted-to.pdf used on input line
+ 5.
+(pdftex.def)             Requested size: 242.90689pt x 73.27354pt.
+ [14
+
+ <./fig/Controller-eps-converted-to.pdf>]
+Overfull \hbox (47.17044pt too wide) in paragraph at lines 37--38
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (14.09583pt too wide) in paragraph at lines 40--42
+[][][][][][][][][][][][][][][][][] 
+ []
+
+) (./EncDec.lhs [15]
+Chapter 5.
+Package epstopdf Info: Source file: <fig/EncDec.eps>
+(epstopdf)                    date: 2018-10-03 21:15:44
+(epstopdf)                    size: 6867 bytes
+(epstopdf)             Output file: <fig/EncDec-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-01-28 22:34:18
+(epstopdf)                    size: 6419 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/EncDec-eps-converted-t
+o.pdf fig/EncDec.eps>
+(epstopdf)             \includegraphics on input line 5.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./fig/EncDec-eps-converted-to.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+
+<fig/EncDec-eps-converted-to.pdf, id=92, 198.7425pt x 202.7575pt>
+File: fig/EncDec-eps-converted-to.pdf Graphic file (type pdf)
+ <use fig/EncDec-eps-converted-to.pdf>
+Package pdftex.def Info: fig/EncDec-eps-converted-to.pdf used on input line 5.
+(pdftex.def)             Requested size: 198.742pt x 202.757pt.
+ [16
+
+ <./fig/EncDec-eps-converted-to.pdf>]
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (14.09583pt too wide) in paragraph at lines 39--40
+[][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 83--84
+[][][][][][][][][][][][][][][][][] 
+ []
+
+ [17]) (./Main.lhs [18]
+Chapter 6.
+Package epstopdf Info: Source file: <fig/TestBench.eps>
+(epstopdf)                    date: 2018-10-03 21:15:44
+(epstopdf)                    size: 19905 bytes
+(epstopdf)             Output file: <fig/TestBench-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-01-28 22:34:17
+(epstopdf)                    size: 10303 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/TestBench-eps-converte
+d-to.pdf fig/TestBench.eps>
+(epstopdf)             \includegraphics on input line 5.
+Package epstopdf Info: Output file is already uptodate.
+File: fig/TestBench-eps-converted-to.pdf Graphic file (type pdf)
+ <use fig/TestBench-eps-converted-to.pdf>
+Package pdftex.def Info: fig/TestBench-eps-converted-to.pdf used on input line 
+5.
+(pdftex.def)             Requested size: 767.86687pt x 416.55522pt.
+ [19
+
+]
+Overfull \hbox (18.82077pt too wide) in paragraph at lines 37--41
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (103.86978pt too wide) in paragraph at lines 55--56
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (32.9956pt too wide) in paragraph at lines 75--76
+[][][][][][][][][][] 
+ []
+
+ [20]
+Overfull \hbox (70.79517pt too wide) in paragraph at lines 107--108
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (4.64594pt too wide) in paragraph at lines 109--111
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (23.54572pt too wide) in paragraph at lines 112--113
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (32.9956pt too wide) in paragraph at lines 113--114
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (18.82077pt too wide) in paragraph at lines 114--115
+[][][][][][][][] 
+ []
+
+) (./Utilities.lhs [21]
+Chapter 7.
+
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 4--6
+[][][][][][][][][][][][][][][][][] 
+ []
+
+ [22
+
+]
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 58--59
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (4.64594pt too wide) in paragraph at lines 73--74
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (0.55493pt too wide) in paragraph at lines 86--87
+[]\OT1/cmr/m/n/10 The pro-cess \OT1/cmtt/m/n/10 adaptiveEncController \OT1/cmr/
+m/n/10 is to gen-er-ate the en-cod-ing al-go-rithms.
+ []
+
+ [23]
+Overfull \hbox (42.4455pt too wide) in paragraph at lines 92--93
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (23.54572pt too wide) in paragraph at lines 93--94
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (0.55493pt too wide) in paragraph at lines 107--108
+[]\OT1/cmr/m/n/10 The pro-cess \OT1/cmtt/m/n/10 adaptiveDecController \OT1/cmr/
+m/n/10 is to gen-er-ate the de-cod-ing al-go-rithms.
+ []
+
+
+Overfull \hbox (42.4455pt too wide) in paragraph at lines 113--114
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (23.54572pt too wide) in paragraph at lines 114--115
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (23.54572pt too wide) in paragraph at lines 128--129
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+ [24]
+Overfull \hbox (18.82077pt too wide) in paragraph at lines 147--148
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./Parameters.lhs [25]
+Chapter 8.
+
+Overfull \hbox (14.09583pt too wide) in paragraph at lines 7--9
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (4.64594pt too wide) in paragraph at lines 21--22
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (23.54572pt too wide) in paragraph at lines 27--28
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+
+ []
+
+ [26
+
+]
+Overfull \hbox (42.4455pt too wide) in paragraph at lines 73--74
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) [27] (./DocumentationTransceiver.aux) ) 
+Here is how much of TeX's memory you used:
+ 5152 strings out of 493029
+ 68102 string characters out of 6136233
+ 191078 words of memory out of 5000000
+ 8582 multiletter control sequences out of 15000+600000
+ 14023 words of font info for 56 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,8n,40p,459b,2134s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsltt10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmtt9.pfb>
+Output written on DocumentationTransceiver.pdf (28 pages, 231034 bytes).
+PDF statistics:
+ 185 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+
