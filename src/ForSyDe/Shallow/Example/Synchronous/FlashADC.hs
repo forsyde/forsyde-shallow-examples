@@ -16,9 +16,9 @@
 -- environment. For plotting, you need the
 -- <http://gnuplot.sourceforge.net Gnuplot package>.
 --
--- To calculate 10000 samples for R=1e3 Omhs, C=1e-6 F, T=1e-6run in @ghci@:
+-- To calculate 10000 samples for R=1e3 Ohms, C=1e-6 F, T=1e-6run in @ghci@:
 --
--- >>> simulate 4
+-- >>> simulate 4 10000
 -- 
 -- To plot the response for a sine wave input, run in @ghci@:
 --

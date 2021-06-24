@@ -28,6 +28,7 @@ library
                        ForSyDe.Shallow.Example.Synchronous.TrafficLight,
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbits,
                        ForSyDe.Shallow.Example.Synchronous.FibonacciRabbitsDeath,
+                       ForSyDe.Shallow.Example.Synchronous.FlashADC,
                        ForSyDe.Shallow.Example.Synchronous.RCFilter,
                        ForSyDe.Shallow.Example.Synchronous.Springs,
                        ForSyDe.Shallow.Example.Synchronous.MulAcc,
@@ -71,3 +72,4 @@ library
                      , filepath >= 1.4
   hs-source-dirs:      src
   default-language:    Haskell2010
+
