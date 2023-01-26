@@ -28,3 +28,4 @@ tramp
 .\#*
 TAGS
 fig/*
+/stack.yaml.lock

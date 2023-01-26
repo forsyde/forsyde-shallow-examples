@@ -1,4 +1,4 @@
-resolver: lts-13.19
+resolver: lts-18.28
 
 extra-deps:
-- forsyde-shallow-3.4.0.0
+- forsyde-shallow-3.5.0.0

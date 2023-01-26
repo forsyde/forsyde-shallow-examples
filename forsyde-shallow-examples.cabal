@@ -2,7 +2,7 @@
 -- For further documentation, see http://haskell.org/cabal/users-guide/
 
 name:                forsyde-shallow-examples
-version:             1.1.0.0
+version:             1.1.0.1
 -- synopsis:            
 description:
   Collection of demo applications for the ForSyDe.Shallow library     
@@ -65,7 +65,7 @@ library
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.6 && <6
-                     , forsyde-shallow == 3.4.0.0
+                     , forsyde-shallow == 3.5.0.0
                      , matrix >= 0.3.6
                      , random >=1.1 && <2
                      , filepath >= 1.4

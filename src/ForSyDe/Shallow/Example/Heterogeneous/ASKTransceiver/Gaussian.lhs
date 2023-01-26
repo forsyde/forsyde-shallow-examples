@@ -16,7 +16,7 @@ import ForSyDe.Shallow.MoC.Untimed
 import ForSyDe.Shallow.Utility.BitVector
 import ForSyDe.Shallow.Core.Signal
 
-import System.Random
+import System.Random hiding (uniform)
 import ForSyDe.Shallow.Example.Heterogeneous.ASKTransceiver.Utilities
 
 -- Test case
