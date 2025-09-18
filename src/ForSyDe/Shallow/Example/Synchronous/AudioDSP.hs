@@ -1,3 +1,18 @@
+-------------------------------------------------------------------------
+-- |
+-- Module      : ForSyDe.Shallow.Example.Synchronous.AudioDSP
+-- Copyright   : (c) Ehsan Khodadad, 2025
+-- License     : BSD-style (see the file LICENSE)
+--
+-- Maintainer  : ehkh@dtu.dk
+-- Stability   : experimental
+-- Portability : portable
+-- This example models an Audio Digital Signal Processing (DSP) system.
+-- The system is implemented as a use case in the following paper:
+-- "ForSyDe on the Patmos Processor" by Ehsan Khodadad, Ingo Sander, Luca Pezzarossa, and Martin Schoeberl.
+--  To test the system, we use a sample audio signal as input.
+
+module ForSyDe.Shallow.Example.Synchronous.AudioDSP where
 import ForSyDe.Shallow
 
 dspClipper :: Signal Double -> Signal Double
