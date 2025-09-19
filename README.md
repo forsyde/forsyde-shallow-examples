@@ -56,6 +56,8 @@ List of demos
   1. [`RCFilter`](src/ForSyDe/Shallow/Example/Synchronous/RCFilter.hs): Models a first order low pass RC filter.
   1. [`MulAcc`](src/ForSyDe/Shallow/Example/Synchronous/MulAcc.hs) : Models a multiply-accumulator. Adaptation from a [ForSyDe-SystemC](https://github.com/forsyde/ForSyDe-SystemC) version, bridging between the two languages.
   1. [`Equalizer`](src/ForSyDe/Shallow/Example/Synchronous/Equalizer.hs): Models an equalizer system used in [Sander's PhD thesis](http://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Akth%3Adiva-3525). 
+  1. [`AudioDSP`](src/ForSyDe/Shallow/Example/Synchronous/AudioDSP.hs): Models an Audio Digital Signal Processing used in ["Forsyde on the Patmos Processor" Paper](https://ieeexplore.ieee.org/document/11121303)
+  1. ['ADAS'](src/ForSyDe/Shallow/Example/Synchronous/ADAS.hs): Models an Advanced Driver-Assistance System (ADAS).
 
 #### 2. Untimed MoC
 

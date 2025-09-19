@@ -1,3 +1,4 @@
+module ForSyDe.Shallow.Example.Synchronous.ADAS where
 import ForSyDe.Shallow
 
 lidar :: Signal Integer
